@@ -1,0 +1,341 @@
+{\rtf1\ansi \deff4\deflang1033{\fonttbl{\f1\froman\fcharset2\fprq2 Symbol;}{\f4\froman\fcharset0\fprq2 Times New Roman;}{\f5\fswiss\fcharset0\fprq2 Arial;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;
+\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;
+\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\f4 \snext0 Normal;}{\*\cs10 \additive Default Paragraph Font;}{\s15 \f4 \sbasedon0\snext15 footnote text;}{\*\cs16 \additive\super \sbasedon10 footnote reference;}{
+\s17\tqc\tx4153\tqr\tx8306 \f4 \sbasedon0\snext17 header;}{\s18\tqc\tx4153\tqr\tx8306 \f4 \sbasedon0\snext18 footer;}}{\info{\title Veranderingen/Aanpassingen/Nieuwe features in Hicks versie 1.05}{\author Hobbes Waterson}{\operator Hobbes Waterson}
+{\creatim\yr1996\mo8\dy14\hr20\min55}{\revtim\yr1996\mo8\dy20\hr19\min25}{\version22}{\edmins348}{\nofpages0}{\nofwords0}{\nofchars0}{\vern49197}}\widowctrl\ftnbj\aenddoc\formshade \fet0{\*\template F:\\MAN\\HELP\\WINHELP.DOT}\sectd 
+\linex0\headery709\footery709\colsx709\endnhere {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4
+\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang
+{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \f4 {\cs16\b\f5\fs32\cf2\super #{\footnote \pard\plain \s15 \f4 {\cs16\super 
+#} contents}}{\b\f5\fs32\cf2  }{\cs16\b\f5\fs32\cf2\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} contents}}{\b\f5\fs32\cf2  }{\cs16\b\f5\fs32\cf2\super K{\footnote \pard\plain \s15 \f4 {\cs16\super K} contents;index}}{\b\f5\fs32\cf2  Contents}{
+\f5 
+\par }\pard {\f5 
+\par }\pard {\b\f5\uldb What is Winfflow?}{\b\v\f5 what_is_winfflow}{\f5 
+\par }{\b\f5\uldb Main Dialog}{\b\v\f5 WINFFLOW_MAIN_DIALOG}{\f5 
+\par }{\b\f5\uldb Settings}{\b\v\f5 WINFFLOW_SETTINGS_DIALOG}{\f5 
+\par }{\b\f5\uldb Progress Indicator}{\b\v\f5 progress_dialog}{\b\f5\uldb 
+\par Output Selector}{\b\v\f5 WINFFLOW_OUTPUTSELECTOR_DIALOG}{\f5 
+\par }{\b\f5\uldb Output Dialog}{\b\v\f5 WINFFLOW_OUTPUT_DIALOG}{\b\f5 
+\par }{\b\f5\uldb Authors}{\b\v\f5 ripley}{\b\f5 
+\par }{\b\f5\uldb Distribution Policy & Disclaimer}{\b\v\f5 distribution_policy}{\f5 
+\par }{\b\f5\fs32\cf2 \page }{\cs16\b\f5\fs32\cf2\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} what_is_winfflow}}{\b\f5\fs32\cf2  }{\cs16\b\f5\fs32\cf2\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Winfflow description}}{\b\f5\fs32\cf2  }{
+\cs16\b\f5\fs32\cf2\super K{\footnote \pard\plain \s15 \f4 {\cs16\super K} Flowgraph;ForUtil}}{\b\f5\fs32\cf2  What is Winfflow?}{\f5 
+\par }\pard {\f5 
+\par }\pard \qj {\f5\fs20 Winfflow is a flowgraph generator for FORTRAN 77 files for use with MS Windows 3.1 or 3.11. It will probably also work under Windows95, although that has not been tested yet. 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Winfflow is part of a suite of fortran Utilities, shortly called }{\f5\fs20\uldb ForUtil}{\v\f5\fs20 forutil}{\f5\fs20 , written by }{\f5\fs20\ul Ripley Software Development}{\v\f5\fs20 ripley}{\f5\fs20 
+. It is a heavily modified version of fflow, a command line version which basically does the same. The way Winfflow works differs quite a lot from fflow, since Winfflow is interactive.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 We do not claim that Winfflow is the ultimate solution to your flowgraph problems, but it can be an aid in understanding the flow in a program. 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 It does have it shortcomings though, since it is designed to do it\rquote s job }{\b\i\f5\fs20 fast}{\f5\fs20 
+. One implication of this is that Winfflow does not recognize functions when they are called, since this would require a totally different approach with regard to the way Winfflow scans FORTRAN 77 files for functions, subroutines, programs and ca
+ll statements.
+\par }\pard \qj {\f5 \page }{\cs16\f5\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} distribution_policy}}{\f5  }{\cs16\f5\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Distribution Policy & Disclaimer}}{\f5  }{\cs16\f5\super K{\footnote 
+\pard\plain \s15 \f4 {\cs16\super K} distribution policy;disclaimer}}{\f5  }{\b\f5\fs32\cf2 Distribution Policy & Disclaimer}{\f5 
+\par }\pard \qj {\f5 
+\par }\pard \qj {\f5\fs20 Winfflow and the other components of }{\f5\fs20\uldb ForUtil}{\v\f5\fs20 forutil}{\f5\fs20  are distributed under the GNU Public License, a copy of which is included in the original distribution.
+\par }\pard \qj {\f5 
+\par }\pard \qj {\b\f5 Disclaimer}{\f5 
+\par }\pard \qj {\f5 
+\par }\pard \qj {\f5\fs20 Copyright (C) 1995-1996 by }{\f5\fs20\ul Ripley Software Development}{\v\f5\fs20 ripley}{\f5\fs20 .
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 1, or (at your option) any later version.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+\par }\pard {\f5 
+\par }\pard \qj {\f5 \page }{\cs16\f5\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} ripley}}{\f5  }{\cs16\f5\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Ripley Software Development}}{\f5  }{\cs16\f5\super K{\footnote \pard\plain \s15 \f4 {
+\cs16\super K} Ripley Software Development;Authors}}{\f5  }{\b\f5\cf2 Ripley Software Development}{\b\f5\fs32\cf2 
+\par }\pard \qj {\f5 
+\par }\pard \qj {\f5\fs20 If you have any questions, suggestions or even complaints about this product, don\rquote t hesitate to contact us by sending email to:
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\cf10 ripley@xs4all.nl
+\par }\pard \qj {\f5\fs20 
+\par Or visit our web page at:
+\par 
+\par }\pard {\b\f5\cf10 http://www.xs4all.nl/~ripley}{\f5 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Feedback is very much appreciated.
+\par }\pard {\f5\fs20 
+\par }{\f5 \page }{\cs16\f5\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} forutil}}{\f5  }{\cs16\f5\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} ForUtil Description}}{\f5  }{\cs16\f5\super K{\footnote \pard\plain \s15 \f4 {\cs16\super K}
+ ForUtil;flowgraph}}{\f5  }{\b\f5\fs32\cf2 ForUtil}{\f5 
+\par }\pard {\f5 
+\par }\pard \qj {\f5\fs20 ForUtil is a collection of FORTRAN utilities designed by }{\f5\fs20\ul Ripley Software Development}{\v\f5\fs20 ripley}{\f5\fs20 .
+\par }\pard \qj {\f5\fs20 
+\par The ForUtil suite is made up of the following programs:
+\par }\pard \qj {\f5 
+\par }\pard \qj {\b\f5\fs20 fflow}{\b\f5 
+\par }\pard \qj {\f5\fs20 A flowgraph generator for f77 files.
+\par 
+\par }\pard \qj {\b\f5\fs20 ffscan
+\par }\pard \qj {\f5\fs20 A simple argument checker for f77 files. ffscan scans a number of f77 source files in search of subroutine definitions. It then tries to find each call made to these subroutines and compares the argument counts. 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 ftags
+\par }\pard \qj {\f5\fs20 This is a tags file generator for }{\b\f5\fs20 vi}{\f5\fs20 , a very popular editor under UNIX. There are several versions of vi available for use with MSDOS. }{\b\f5\fs20 vim}{\f5\fs20  is one of them.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 scan_commons, list_commons, get_common}{\f5\fs20 
+\par }\pard \qj {\f5\fs20 Three tools to build, list and query a database made up of the contents of common blocks found in include files. Variables declared with PARAMETER, LOGICAL, INTEGER, REAL and CHARACTER inside an include fil
+e are also placed in the database. These utilities can be very handy if you are working on a large project with a great deal of include files.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 All these programs are known to have run on the following systems: IBM AIX 3.2 and 4.1; SGI IRIX 5.2 and 5.3; HPUX 9 and 10; SunOs 4.1 and 4.3; Cray Unicos; DEC OSF1
+; Linux, all kernel versions after 1.3.56; MSDOS and a msdos box in MS-Windows 3.1, 3.11 and Win95.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 The latest versions of these utilities are available at the following http address:
+\par }\pard \qj {\f5 
+\par }\pard \qj {\b\f5\cf10 http://www.xs4all.nl/~ripley/ForUtil.html
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 or by contacting the }{\f5\fs20\uldb authors}{\v\f5\fs20 ripley}{\f5\fs20 
+\par }\pard {\b\f5\fs32\cf2 \page }{\cs16\b\f5\fs32\cf2\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} WINFFLOW_SETTINGS_DIALOG}}{\b\f5\fs32\cf2  }{\cs16\b\f5\fs32\cf2\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Winfflow Settings Dialog}}{
+\b\f5\fs32\cf2  }{\cs16\b\f5\fs32\cf2\super K{\footnote \pard\plain \s15 \f4 {\cs16\super K} changing settings;collapse;changing maximum depth;changing cutoff depth;changing the editor command;depth}}{\b\f5\fs32\cf2  Winfflow Settings}{\f5\cf2 
+\par }\pard {\f5\cf2 
+\par }\pard {\b\f5\ul Editor
+\par }\pard \qj {\f5 
+\par }\pard \qj {\f5\fs20 The command Winfflow should use when you want to edit a file. If the editor you want Winfflow to use is not in your PATH statement, specify the full path. You can use your favorite editor here.
+\par }\pard \qj {\f5\fs20 
+\par You can supply two macros with the editor command. They are:
+\par 
+\par {\pntext\pard\plain\f1\fs20 \'b7\tab}}\pard \qj\fi-283\li283{\*\pn \pnlvlblt\pnf1\pnstart1\pnindent283\pnhang{\pntxtb \'b7}}{\b\f5\fs20 @FILE}{\f5\fs20 : will be replaced by the name of the file you want to edit;
+\par {\pntext\pard\plain\f1\fs20 \'b7\tab}}\pard \qj\fi-283\li283{\*\pn \pnlvlblt\pnf1\pnstart1\pnindent283\pnhang{\pntxtb \'b7}}{\b\f5\fs20 @LINE}{\f5\fs20 : when applicable, this will be replaced by a line number.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Winfflow comes with a slightly modified version of }{\b\f5\fs20 poppad}{\f5\fs20 , written by Charles Petzold. The command line of this editor has been changed to support a line number.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Default value: }{\b\f5\fs20 poppad.exe @FILE -l @LINE}{\f5\fs20 
+\par }\pard \qj {\f5 
+\par }\pard \qj {\b\f5\ul Flowgraph Defaults
+\par }\pard \qj {\f5 
+\par }{\b\f5\fs20 Default Flowgraph Cutoff Depth}{\f5\fs20 : the maximum }{\f5\fs20\ul depth}{\v\f5\fs20 whatis_depth_popup}{\f5\fs20  Winfflow may traverse down the calltree of the toplevel }{\f5\fs20\ul routine}{\v\f5\fs20 routine_popup}{\f5\fs20 
+ it is generating a flowgraph for. A value of zero (0) disables this feature so Winfflow will traverse the entire calling tree. This option can be changed in the Winfflow }{\f5\fs20\uldb Output Selector}{\v\f5\fs20 WINFFLOW_OUTPUTSELECTOR_DIALOG}{
+\f5\fs20  dialog.
+\par }\pard \qj {\f5\fs20 
+\par Default value: 0 (Off)
+\par 
+\par }\pard \qj {\b\f5\fs20 Maximum Allowable Flowgraph Depth}{\f5\fs20 : the ultimate }{\f5\fs20\ul depth}{\v\f5\fs20 whatis_depth_popup}{\f5\fs20  Winfflow may traverse down the calltree of the toplevel }{\f5\fs20\ul routine}{\v\f5\fs20 routine_popup}{
+\f5\fs20  it is generating a flowgraph for. This 
+number is a safety feature against infinite recursion somewhere in your calltree. This number is likely to be hit if you call a routine down in the calltree which calls a routine somewhere up the calltree. When this number is hit, Winfflow will tell you t
+hat somewhere along the line infinite recursion occurs, together with the routine it is currently in. It will then abort the flowgraph generation.
+\par }\pard \qj {\f5\fs20 
+\par Default value: 64
+\par 
+\par }\pard \qj {\b\f5\fs20 Collapse Consecutive Calls to the Same Routine}{\f5\fs20 : enabling this option will cause Winfflow t
+o collapse each consecutive call to the same routine into one, thereby reducing the size and enhancing the readability of the flowgraph. This option can be changed in the Winfflow }{\f5\fs20\uldb Output Selector}{\v\f5\fs20 WINFFLOW_OUTPUTSELECTOR_DIALOG}
+{\f5\fs20  dialog.
+\par }\pard \qj {\f5\fs20 
+\par Default value: On
+\par 
+\par }\pard \qj {\b\f5\fs20 Hide Unresolved Calls}{\f5\fs20 
+: enabling this option will cause Winfflow to not show calls to subroutines of which it cannot find the definition (such as calls to routines in libraries). Enabling this option can reduce the size of a generated flowgraph. This option c
+an be changed in the Winfflow }{\f5\fs20\uldb Output Selector}{\v\f5\fs20 WINFFLOW_OUTPUTSELECTOR_DIALOG}{\f5\fs20  dialog.
+\par }\pard \qj {\f5\fs20 
+\par Default value: Off
+\par }\pard \qj {\f5 
+\par }\pard \qj {\b\f5\fs20 Allow Dynamic Update}{\f5\fs20 : enabling this option will cause Winfflow to immediately update a flowgraph when you make changes to the flowgraph options in the }{\f5\fs20\uldb Output Selector}{\v\f5\fs20 
+WINFFLOW_OUTPUTSELECTOR_DIALOG}{\f5\fs20  dialog. This only applies when the }{\f5\fs20\uldb Output dialog}{\v\f5\fs20 WINFFLOW_OUTPUT_DIALOG}{\f5\fs20  is displayed when you alter the flowgraph options.
+\par }\pard \qj {\f5\fs20 
+\par Default value: On
+\par }\pard \qj {\f5 
+\par }\pard \qj {\b\f5\ul Autosave Options
+\par }\pard \qj {\f5 
+\par }\pard \qj {\b\f5\fs20 Save Filelist on Exit}{\f5\fs20 : when enabled, Winfflow will remember the files it has scanned and the directory they are in. The effect of this is that when you use Winfflow
+ again, the files you have scanned last will be loaded for you.
+\par }\pard \qj {\f5\fs20 
+\par Default value: On
+\par }\pard \qj {\f5 \page }{\cs16\b\f5\fs32\cf2\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} WINFFLOW_MAIN_DIALOG}}{\b\f5\fs32\cf2  }{\cs16\b\f5\fs32\cf2\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Winfflow Main Window}}{\b\f5\fs32\cf2  }
+{\cs16\b\f5\fs32\cf2\super K{\footnote \pard\plain \s15 \f4 {\cs16\super K} main window;adding files;removing files;scanning files;editing files}}{\b\f5\fs32\cf2  Winfflow Main Window
+\par }\pard \qj {\f5 
+\par }\pard \qj {\b\f5\ul Add
+\par }\pard \qj {\f5 
+\par }\pard \qj {\f5\fs20 
+Use this button to add more files to the list of files on the left side of the main dialog. When pressed, a File Selection dialog box appears. You can then walk to the directory where the files you want to scan reside. Winfflow supports the selection of m
+ultiple files. You can select multiple files in a number of ways:
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj\tx1134 {\b\f5\fs20 <Shift Key>\tab +<Down/Up Arrow>}{\f5\fs20 : selects all files you walk over.
+\par }\pard \qj\tx1134 {\b\f5\fs20 <Shift Key>\tab +<Mouse selection>}{\f5\fs20 : selects all files you drag the mouse pointer over.
+\par }{\b\f5\fs20 <Ctrl Key>\tab +<Mouse selection>}{\f5\fs20 : selects every file which you single-click. 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Edit
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Press this button if you want to edit the currently selected file in the list of files. You can also edit a file in the list of files by double-clicking on a name. You can change the editor by modifying the }{\f5\fs20\uldb 
+Winfflow Settings}{\v\f5\fs20 WINFFLOW_SETTINGS_DIALOG}{\f5\fs20 .
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Remove
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Removes the currently selected file from the list of files. When the files in the listbox have bee
+n scanned, using this option will invalidate the results of that scan. As a result of that, the files in the listbox will be scanned again when you press the Scan button.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Remove All
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Using this button will remove all files from the listbox. This also invalidates the results of any previous scan made on the [removed] set of files.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Scan
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Pressing this button will scan all files in the list of files. While Winfflow is scanning your files, a }{\f5\fs20\uldb progress indicator dialog}{\v\f5\fs20 progress_dialog}{\f5\fs20  will appear. When the scan is complete, the }{
+\f5\fs20\uldb Winfflow Output Selector}{\v\f5\fs20 WINFFLOW_OUTPUTSELECTOR_DIALOG}{\f5\fs20 
+ dialog will be shown. When you return back to the Main Window, you can return to the Winfflow Output Selector dialog by pressing this button again. If you have not made any changes to the list of files or aborted the scanning process, the files will not 
+be scanned again.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Settings
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 This will bring up the }{\f5\fs20\uldb Winfflow Settings}{\v\f5\fs20 WINFFLOW_SETTINGS_DIALOG}{\f5\fs20  Dialog where you can alter the default settings.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Quit
+\par }\pard \qj {\f5\fs20 
+\par Terminates the current session.
+\par }\pard \qj {\f5\fs20 \page }{\cs16\f5\fs20\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} progress_dialog}}{\f5\fs20  }{\cs16\f5\fs20\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Progress Dialog}}{\f5\fs20  }{\cs16\f5\fs20\super K
+{\footnote \pard\plain \s15 \f4 {\cs16\super K} Winfflow Progress Dialog}}{\f5\fs20  }{\b\f5\fs32\cf2 Winfflow Progress Indicator
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 The Progress Dialog appears when Winfflow is scanning your files in search of }{\f5\fs20\ul routine}{\v\f5\fs20 routine_popup}{\f5\fs20 
+ definitions and call statements. During this scanning process, the name of the file Winfflow is currently scanning will be displayed. 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 If, for whatever reason, you wish to abort the scan process, you can press the }{\b\f5\fs20 Stop}{\f5\fs20 
+ button. If you press this button, you will be asked if you wish to abort the scan process. Answering Yes will abort the scan immediately, and the }{\f5\fs20\uldb Output Selector}{\v\f5\fs20 WINFFLOW_OUTPUTSELECTOR_DIALOG}{\f5\fs20 
+ dialog will appear. If you answer No, the scan will continue where it left off.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 If you have ended the scan process prematurely, Winfflow will scan your files again when you press the }{\b\f5\fs20 Scan}{\f5\fs20  button in the }{\f5\fs20\uldb Main window}{\v\f5\fs20 WINFFLOW_MAIN_DIALOG}{\f5\fs20 
+ again, regardless if you have modified the list of files or not.
+\par }{\f5 \page }{\cs16\b\f5\fs32\cf2\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} WINFFLOW_OUTPUTSELECTOR_DIALOG}}{\b\f5\fs32\cf2  }{\cs16\b\f5\fs32\cf2\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Winfflow Output Selector Dialog}}{
+\b\f5\fs32\cf2  }{\cs16\b\f5\fs32\cf2\super K{\footnote \pard\plain \s15 \f4 {\cs16\super K} output;flowgraph;selecting flowgraphs;selector}}{\b\f5\fs32\cf2  Winfflow Output Selector}{\f5 
+\par }\pard \qj {\f5 
+\par }\pard \qj {\b\f5\ul Select File
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 This list (extendible by clicking the down arrow with your mouse pointer or by pressing the }{\b\f5\fs20 <Alt Key>+<Down Arrow>}{\f5\fs20 ), contains all files
+ in the list of files in the Winfflow Main Window. If you select a file, the Select Routine list will contain, depending on the type of }{\f5\fs20\ul routine}{\v\f5\fs20 routine_popup}{\f5\fs20 
+ selected, all routines Winfflow has detected in that file. The default is to list all subroutines and functions in all files.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Flowgraph Options
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 Collapse Consecutive}{\f5\fs20 : if enabled, all consecutive calls to the same subroutine are collapsed into one. See also the }{\f5\fs20\uldb Winfflow Settings}{\v\f5\fs20 WINFFLOW_SETTINGS_DIALOG}{\f5\fs20 .
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 Hide Unresolved}{\f5\fs20 : if enabled, }{\f5\fs20\ul unresolved calls}{\v\f5\fs20 unresolved_call_popup}{\f5\fs20  will not be shown in the generated flowgraph. See also the Winfflow Settings.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 Hide Resolved}{\f5\fs20 : if enabled, }{\f5\fs20\ul resolved calls}{\v\f5\fs20 resolved_call_popup}{\f5\fs20 
+ will not be shown in the generated flowgraph. This can be usefull if you only want to see the calls that Winfflow can not resolve.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 Cutoff Depth}{\f5\fs20 : the maximum }{\f5\fs20\ul depth}{\v\f5\fs20 whatis_depth_popup}{\f5\fs20  Winfflow will follow the calltree of the currently selected routine. See also the Winfflow Settings.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 If you have enabled the }{\f5\fs20\uldb Allow Dynamic Update}{\v\f5\fs20 WINFFLOW_SETTINGS_DIALOG}{\f5\fs20  setting, changing any of the first three options will cause Winfflow to automatically regenerate a flowgraph if the }{
+\f5\fs20\uldb Output dialog}{\v\f5\fs20 WINFFLOW_OUTPUT_DIALOG}{\f5\fs20  is up.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Select Routine}{\f5\ul 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 This list contains the names of all }{\f5\fs20\ul routines}{\v\f5\fs20 routine_popup}{\f5\fs20  found in the currently selected file. When you double click (or select a name by using the}{\b\f5\fs20  <Down/Up Arrow>}{\f5\fs20 
+ followed by }{\b\f5\fs20 <Enter>}{\f5\fs20 ), Winfflow will generate a flowgraph for that routine. When the flowgraph has been generated, the }{\f5\fs20\uldb Winfflow Output}{\v\f5\fs20 WINFFLOW_OUTPUT_DIALOG}{\f5\fs20  dialog appears w
+hich allows you to examine (or save) that flowgraph.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 There are three other options available, which determine the type of routine shown in the list. They are the following:
+\par }\pard \qj {\b\f5\fs20 Function}{\f5\fs20 : if enabled, the Select Routine list will contain all functions in the currently selected file.
+\par }\pard \qj {\b\f5\fs20 Subroutine}{\f5\fs20 : if enabled, the Select Routine list will contain all subroutines in the currently selected file.
+\par }{\b\f5\fs20 Unused Only}{\f5\fs20 : if enabled, the Select Routine list will contain the names of all subroutines that are not used by any other routine. This option is exclusive with respect to the above ones.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 If }{\b\f5\fs20 Function}{\f5\fs20  and }{\b\f5\fs20 Subroutine}{\f5\fs20 
+ are both enabled, the Select Routine list will contain all functions and subroutines in the currently selected file. A program (if present in the files scanned) will always be present regardless of the state of the above two options.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul View
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Pressing this button will generate a flowgraph for the currently selected }{\f5\fs20\ul routine}{\v\f5\fs20 routine_popup}{\f5\fs20  in the Select Routine list. When the flowgraph has been generated, the }{\f5\fs20\uldb Winfflow Outp
+ut}{\v\f5\fs20 WINFFLOW_OUTPUT_DIALOG}{\f5\fs20  dialog appears which allows you to examine (or save) that flowgraph.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Close
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Pressing this button will return you to the }{\f5\fs20\uldb Winfflow Main Window}{\v\f5\fs20 WINFFLOW_MAIN_DIALOG}{\f5\fs20 .
+\par }{\f5 \page }{\cs16\b\f5\fs32\cf2\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} WINFFLOW_OUTPUT_DIALOG}}{\b\f5\fs32\cf2  }{\cs16\b\f5\fs32\cf2\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Winfflow Output Dialog}}{\b\f5\fs32\cf2  }{
+\cs16\b\f5\fs32\cf2\super K{\footnote \pard\plain \s15 \f4 {\cs16\super K} output;flowgraph;editing files}}{\b\f5\fs32\cf2  Winfflow Output}{\f5 
+\par }\pard \qj {\f5 
+\par }\pard \qj {\b\f5\ul Routine Statistics}{\f5\ul 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 File}{\f5\fs20 : the name and size of the file this flowgraph was generated for.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 Routine Name}{\f5\fs20 : the name of the }{\f5\fs20\ul routine}{\v\f5\fs20 routine_popup}{\f5\fs20  this flowgraph was generated for.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 Resolved Calls}{\f5\fs20 : the number of calls made in the }{\f5\fs20\ul routine}{\v\f5\fs20 routine_popup}{\f5\fs20  of which Winfflow was able to determine the location of the call\rquote 
+s definition. This number is the accumulated number of resolved calls along the entire calltree of the current routine. This number will be incrementing while Winfflow is generating a flowgraph.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 Unresolved Calls}{\f5\fs20 : the number of calls made in the }{\f5\fs20\ul routine}{\v\f5\fs20 routine_popup}{\f5\fs20  of which Winfflow could not determine the location of the call\rquote 
+s definition. This number is the accumulated number of unresolved calls along the entire calltree of the current routine. This number will be incrementing while Winfflow is generating a flowgraph.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 Total Calls}{\f5\fs20 : the total number of calls made. This number is the sum of the Resolved and Unresolved calls. This number is incrementing while Winfflow is generating a flowgraph.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 When the }{\f5\fs20\uldb generated flowgraph is too big to fit into the list}{\v\f5\fs20 WINFFLOW_OUTPUT_TOO_BIG}{\f5\fs20 , Winfflow will tell you so.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Flowgraph}{\f5\ul 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 This list contains the flowgraph for the current }{\f5\fs20\ul routine}{\v\f5\fs20 routine_popup}{\f5\fs20 . The topmost line in this list contains the name of the routine this flowgraph was generated for. The name of the 
+file and the line number where this routine is declared is shown between braces. You can edit this routine by double clicking on it or by selecting it and pressing the }{\b\f5\fs20 Edit}{\f5\fs20  button.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 The flowgraph itself is made up of lines, each representing a call, in one of the  following formats:
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 <number>\tab | ->\tab <name>, <line> (<filename>, <line>)}{\f5\fs20 
+\par }{\b\f5\fs20 <number>\tab | ->\tab <name>, <line> repeated <num> times}{\f5\fs20 
+\par }{\b\f5\fs20 <number>\tab | ->\tab <name>, <line> (<unknown>)}{\f5\fs20 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\fs20 <number>}{\f5\fs20  indicates the }{\f5\fs20\ul depth}{\v\f5\fs20 whatis_depth_popup}{\f5\fs20  of that call. }{\b\f5\fs20 <name>}{\f5\fs20  is the name of the call made, }{\b\f5\fs20 <line>}{\f5\fs20 
+ is the line on which the call is made in the }{\f5\fs20\ul parent subroutine}{\v\f5\fs20 parent_popup}{\f5\fs20  of that call.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 If Winfflow was able to find the definition of the call made (resolve it), }{\b\f5\fs20 <filename>}{\f5\fs20  represents the name of the file where the definition of the call has been found, and the }{\b\f5\fs20 <line>}{\f5\fs20 
+ is the line number where that call is defined. 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 If you have enabled the }{\f5\fs20\ul Collapse Consecutive}{\v\f5\fs20 collapse_popup}{\f5\fs20  option and consecutive calls to the same subroutine have been found, a second line will read: }{\b\f5\fs20 repeated <num> times}{
+\f5\fs20 , instead. }{\b\f5\fs20 <num>}{\f5\fs20  represents the total number of times that call was repeated before being interrupted by another call.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 When }{\b\f5\fs20 <unknown>}{\f5\fs20  is placed between braces, it means that Winfflow was unable to find  the definition of the call made on that line.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 You can edit a particular call by double clicking on it. When you double click a collapsed call, Winfflow will show you the correct routine. You can change the  editor by modifying the }{\f5\fs20\uldb Winfflow Settings}{\v\f5\fs20 
+WINFFLOW_SETTINGS_DIALOG}{\f5\fs20 .
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Edit}{\f5\ul 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Pressing this button enables you to edit the currently selected call. You can change the  editor by modifying the }{\f5\fs20\uldb Winfflow Settings}{\v\f5\fs20 WINFFLOW_SETTINGS_DIALOG}{\f5\fs20 .
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Save}{\f5\ul 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 
+This button allows you to save the generated flowgraph to file. When pressed, a file selection dialog will appear in which you can enter the name of a file to save the flowgraph to. The default value supplied by the file selection dialog is: }{\b\f5\fs20 
+<name.out>}{\f5\fs20 . }{\b\f5\fs20 Name}{\f5\fs20  is the name of the routine the flowgraph was generated for. Once you have entered a filename, pressing the OK button will cause Winfflow to save the flowgraph to tha
+t file. If you press the Cancel button, no saving will be done.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Abort}{\f5\fs20 
+\par }\pard \qj {\f5\fs20 This button is only visible while Winfflow is generating a flowgraph for the current routine. Pressing this button will abort this process. When the flowgraph has been fully generated, this button will change to the }{\b\f5\fs20 Close
+}{\f5\fs20  button.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\b\f5\ul Close}{\f5\ul 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 Pressing this button will close the Winfflow Output dialog and return you to the }{\f5\fs20\uldb Winfflow Output Selector}{\v\f5\fs20 WINFFLOW_OUTPUTSELECTOR_DIALOG}{\f5\fs20 .
+\par }{\f5 \page }{\cs16\b\f5\fs32\cf2\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} WINFFLOW_OUTPUT_TOO_BIG}}{\b\f5\fs32\cf2  }{\cs16\b\f5\fs32\cf2\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Generated Flowgraph to big to fit Into List}}{
+\b\f5\fs32\cf2  }{\cs16\b\f5\fs32\cf2\super K{\footnote \pard\plain \s15 \f4 {\cs16\super K} flowgraph;warnings}}{\b\f5\fs32\cf2  Generated Flowgraph to big to fit Into List}{\f5 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 This warning appears when the generated flowgraph is to large to fit in the Flowgraph list in the }{\f5\fs20\uldb Winfflow Output dialog}{\v\f5\fs20 WINFFLOW_OUTPUT_DIALOG}{\f5\fs20 
+. This can happen if you want to generate a flowgraph of an entire program, or if you want to generate a flowgraph of a high-level routine which is part of a very large program. 
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 When this happens, Winfflow will ask you if you want to save the generated flowgraph to a file. If you choose }{\b\f5\fs20 Yes}{\f5\fs20 , a file selection dialog will appear in which you can enter a name of a file of which to s
+ave the flowgraph to. Answering }{\b\f5\fs20 No}{\f5\fs20  will cause Winfflow to abort the generation of a flowgraph and leave you with the flowgraph it has generated so far. Answering }{\b\f5\fs20 Cancel}{\f5\fs20  will return you to the }{
+\f5\fs20\uldb Winfflow Output Selector}{\v\f5\fs20 WINFFLOW_OUTPUTSELECTOR_DIALOG}{\f5\fs20  dialog.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 This warning can also be caused by infinite recursion occurring somewhere in the calltree. If you think the latter is causing this warning to appear, you might want to decrease the }{\f5\fs20\ul Maximum Allowable Flowgraph Depth}{
+\v\f5\fs20 depth_popup}{\f5\fs20  in the }{\f5\fs20\uldb Winfflow Settings}{\v\f5\fs20 WINFFLOW_SETTINGS_DIALOG}{\f5\fs20  dialog.
+\par }\pard \qj {\f5\fs20 
+\par 
+\par }\pard \qj {\b\f5 Important Reminder:
+\par }\pard \qj {\f5\fs20 If you answer }{\b\f5\fs20 No}{\f5\fs20  to the question you are asked and you want to save the flowgraph later using the }{\b\f5\fs20 Save}{\f5\fs20  button in the }{\f5\fs20\uldb Output dialog}{\v\f5\fs20 WINFFLOW_OUTPUT_DIALOG}{
+\f5\fs20 , Winfflow will only save the portion of the flowgraph that you can scroll through. If you want to save the full flowgraph, you need to regenerate the flowgraph by selecting the View button in the }{\f5\fs20\uldb Output Selector}{\v\f5\fs20 
+WINFFLOW_OUTPUTSELECTOR_DIALOG}{\f5\fs20  dialog and answering }{\b\f5\fs20 Yes}{\f5\fs20  to the above question when it is raised again.
+\par }\pard \qj {\f5\fs20 
+\par }\pard \qj {\f5\fs20 \page }{\cs16\f5\fs20\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} parent_popup}}{\f5\fs20  }{\cs16\f5\fs20\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} What is a parent?}}{\f5\fs20  }{\cs16\f5\fs20\super K
+{\footnote \pard\plain \s15 \f4 {\cs16\super K} parent}}{\f5\fs20  A parent of a call is the previous subroutine with depth minus one.
+\par \page }{\cs16\f5\fs20\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} routine_popup}}{\f5\fs20  }{\cs16\f5\fs20\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} What is a routine?}}{\f5\fs20  }{\cs16\f5\fs20\super K{\footnote \pard\plain 
+\s15 \f4 {\cs16\super K} routine}}{\f5\fs20  routine is used as a shortcut for function, subroutine or program.
+\par \page }{\cs16\f5\fs20\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} whatis_depth_popup}}{\f5\fs20  }{\cs16\f5\fs20\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Depth}}{\f5\fs20  }{\cs16\f5\fs20\super K{\footnote \pard\plain \s15 \f4 {
+\cs16\super K} depth}}{\f5\fs20  Depth refers to the level in the calltree of the current routine.
+\par \page }{\cs16\f5\fs20\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} depth_popup}}{\f5\fs20  }{\cs16\f5\fs20\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Maximum Allowable Depth}}{\f5\fs20  }{\cs16\f5\fs20\super K{\footnote \pard\plain 
+\s15 \f4 {\cs16\super K} maximum depth;depth}}{\f5\fs20  }{\b\f5\fs20 Maximum Allowable Flowgraph Depth}{\f5\fs20 
+: the ultimate depth Winfflow may traverse down the calltree of the toplevel routine it is generating a flowgraph for. This number is a safety feature against infinite recursion somewhere in your calltree. This number is likely to be hit if you 
+call a routine down in the calltree which calls a routine somewhere up the calltree. When this number is hit, Winfflow will tell you that somewhere along the line infinite recursion occurs, together with the routine it is currently in. It will then abort 
+the flowgraph generation.
+\par \page }{\cs16\f5\fs20\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} collapse_popup}}{\f5\fs20  }{\cs16\f5\fs20\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} Collapse Consecutive Calls}}{\f5\fs20  }{\cs16\f5\fs20\super K{\footnote 
+\pard\plain \s15 \f4 {\cs16\super K} collapse}}{\f5\fs20  }{\b\f5\fs20 Collapse Consecutive Calls to the Same Routine}{\f5\fs20 
+: When enabled, Winfflow will collapse each consecutive call to the same routine into one, thereby reducing the size and enhancing the readability of the flowgraph.
+\par }\pard {\f5 \page }{\cs16\f5\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #} resolved_call_popup}}{\f5  }{\cs16\f5\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} What is a Resolved Call?}}{\f5  }{\cs16\f5\super K{\footnote \pard\plain \s15 
+\f4 {\cs16\super K} call;resolved call}}{\f5  }{\b\f5\fs20 Resolved Call}{\f5\fs20 : a call of Winfflow can find the definition in the source files it has scanned.}{\f5 \page }{\cs16\f5\super #{\footnote \pard\plain \s15 \f4 {\cs16\super #}
+ unresolved_call_popup}}{\f5  }{\cs16\f5\super ${\footnote \pard\plain \s15 \f4 {\cs16\super $} What is a Unresolved Call?}}{\f5  }{\cs16\f5\super K{\footnote \pard\plain \s15 \f4 {\cs16\super K} call;unresolved call}}{\f5  }{\b\f5\fs20 Unresolved Call}{
+\f5\fs20 : a call of which Winfflow can not find the definition in the source files it has scanned.}{\f5 \page 
+\par }}

@@ -1,0 +1,100 @@
+MS-dos users, read msdos/readme.dos and lib/readme
+MS-windows users, read windows/readme.txt
+
+Compilation & Installation Instructions
+---------------------------------------
+
+1. Type configure at the top-level directory. 
+
+   The file INSTALL contains information on how to run configure.
+
+   By default, install will place binaries and manual pages in
+   /usr/local/bin and /usr/local/man/[man,cat]1. If you want them in
+   another directory, you can tell configure what directory make install
+   should use by running configure with the --prefix=PATH option. 
+
+   If configure can't find libgdbm.a, it will give you a warning saying
+   just that. The consequence to this is that you will not be able to
+   compile the common utilities. If you do want to build them, you need
+   to get and compile gdbm. You can get gdbm from a large number of ftp
+   sites around the world. Compiling gdbm is simple, just follow the 
+   instructions that come with it.
+
+2. Check the top-level makefile and, if necessary, set appropriate values
+   for CCFLAGS, LDFLAGS, INCLUDES and LOADLIBES
+
+   For HPUX, you do need to set -Aa (for ansi compatibility) as well as
+   -D_HPUX_SOURCE and -D_POSIX_SOURCE.
+   If the compilation fails, most of the time it has something to do with
+   adding the proper defines, such as -D_POSIX_SOURCE.
+
+   By default, CFLAGS is set to -g. You might want to use -O or -O2 instead
+   since the performance loss by using -g is quite considerable.
+
+   If you only want to build a certain part of the source tree, say you
+   only want to build ffscan and fflow, you can do this by changing the
+   SUBDIRS line in the toplevel makefile until it reads:
+     SUBDIRS= lib fflow ffscan
+
+   Never remove ``lib'' from this line.
+
+3. Type make at the top-level directory to build everything.
+
+4. Type make install to install the binaries
+
+5. Install the manual pages. You have two options here:
+   make install.cat will install preformatted manual pages in man/cat1
+   make install.man will install the raw groff manual pages in man/man1
+
+   Alternatively, you can type
+       make install.all
+   which will install the binaries, groff source manpages and formatted 
+   man pages.
+
+6. Type make clean or remove the entire source tree.
+
+
+Other things to mention
+-----------------------
+
+gdbm:
+   If you have build gdbm and you have set INCLUDES to point to the
+   path where you have build libgdbm, be _sure_ to remove or rename 
+   the autoconf.h file in the gdbm directory. 
+   If you do not do this, make will get confused and will not know what 
+   autoconf.h it must use when compiling ForUtil.
+
+
+Man pages:
+   ForUtil comes with four different types of manual pages, all of them 
+   are in the man/ directory:
+
+   - doc; contains plain text versions of the manual pages
+   - html; contains html versions of the manual pages
+   - man; contains the groff source for the manual pages
+   - preformat; contains formatted manual pages.
+
+   MSDOS users might want to get a copy of less for MSDOS, which is capable 
+   of showing formatted unix manual pages.
+
+
+flex:
+   If you do not have flex, do not touch any of the .l files.
+   Make will try to create .c files out of these and fail because you do
+   not have flex.
+
+If you are completely and utterly unable to compile these programs, contact
+me and I will try to get you a binary.
+
+The latest source (and binaries) are available at the following URL:
+http://www.xs4all.nl/~ripley/RSD/ForUtil.html
+
+Koen D'Hondt.
+Ripley Software Development.
+-------------------------------------------------------------------------------
+Reach Out At: 	email: ripley@xs4all.nl
+Surf The Web:	http://www.xs4all.nl/~ripley
+-------------------------------------------------------------------------------
+$Source: /usr/local/rcs/ForUtil/toplevel/RCS/README,v $
+$Revision: 1.1 $
+-------------------------------------------------------------------------------

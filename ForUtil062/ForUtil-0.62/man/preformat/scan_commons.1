@@ -1,0 +1,264 @@
+
+
+
+SCAN_COMMONS(1)       ForUtil Fortran Tools       SCAN_COMMONS(1)
+
+
+NNAAMMEE
+       scan_commons - create a fortran f77 commons database.
+
+
+SSYYNNOOPPSSIISS
+       ssccaann__ccoommmmoonnss  [[--aaffhhqqrrssvv]]  --EE_e_x_t  --II_d_i_r  --dd_d_a_t_a_b_a_s_e  --xx_n_a_m_e
+       [[ffiilleess]]
+
+
+DDEESSCCRRIIPPTTIIOONN
+       ssccaann__ccoommmmoonnss builds a database from the contents of common
+       blocks or variable declarations.  ssccaann__ccoommmmoonnss is intended
+       to work with f77 include files  containing  common  blocks
+       and  global  variable declarations, but can works with f77
+       source files.
+
+       The following variable declarations are recognized:  CCHHAARR--
+       AACCTTEERR,,  CCOOMMMMOONN,,  CCOOMMPPLLEEXX,, DDOOUUBBLLEE PPRREECCIISSIIOONN,, IINNTTEEGGEERR,, LLOOGGII--
+       CCAALL,, PPAARRAAMMEETTEERR and RREEAALL..
+
+       The generated database can  subsequently  be  used  for  a
+       quick  lookup  using  ggeett__ccoommmmoonn(1)  to  see  in which f77
+       include file a certain common variable is defined.
+
+       ssccaann__ccoommmmoonnss uses the GNU database manager gdbm for  stor-
+       ing, checking and retrieving items in the database.
+
+
+OOPPTTIIOONNSS
+       --aa     Add  duplicate  commons if they are defined in dif-
+              ferent include files. If you choose not to use this
+              flag,  duplicate  commons  defined in different f77
+              include files will not be stored in  the  generated
+              database.
+
+
+       --ff     Store  filenames only. The default is to store path
+              and  filename.   Use  this   option   to   preserve
+              diskspace  (or  memory if you are running this tool
+              under MS-DOS).
+
+
+       --hh,, ----hheellpp
+              gives a short overview of every option.
+
+
+       --qq     be really quiet. This will only print fatal  errors
+              on stderr.  Usefull if called from a script.
+
+
+       --rr     re-organize  the  database after creation/updating.
+              This may take a long time since  the  old  database
+              will be read, sorted and written again. This option
+              can be used standalone.
+
+
+
+Linux                      August 1996                          1
+
+
+
+
+
+SCAN_COMMONS(1)       ForUtil Fortran Tools       SCAN_COMMONS(1)
+
+
+       --ss     safe operation: every time a common  is  found  the
+              database  will  be  updated  immediatly. Using this
+              option can slow  the  generation  or  update  of  a
+              database seriously down since no caching will done.
+
+
+       --vv     Be verbose.  ssccaann__ccoommmmoonnss will print out a list  of
+              directories  to visit, what extensions it is using,
+              the number of files it has to scan, a complete list
+              of  all  files to scan and a status report of every
+              file scanned.  The output of these statistics is as
+              follows:
+
+              Statistics for file foo.inc (9/67)
+              commons found      : 16
+                     The total number of commons found in foo.inc
+              duplicate commons  : 3
+                     The total number of duplicate commons  found
+                     in foo.inc. These duplicates can be found in
+                     another include file.
+              commons rejected   : 0
+                     Number of commons rejected. This number  can
+                     be different from 0 if you are performing an
+                     update of a database.
+              commons accepted   : 19
+                     Total number of commons accepted  for  stor-
+                     age.
+              commons stored     : 19
+                     Total number of commons actually stored.
+
+
+       ----vveerrssiioonn
+              Shows the version number of ssccaann__ccoommmmoonnss
+
+
+       --EE_e_x_t  Extensions ssccaann__ccoommmmoonnss must use to determine which
+              files it has to scan. Up to eight -E  are  allowed.
+              Use  _-_E_-  to  specify  no  extension.   The default
+              extension is the empty extension.
+
+
+       --II_d_i_r  Using this option tells ssccaann__ccoommmmoonnss which directo-
+              ries it has to search for f77 files containing com-
+              mon blocks. Only the contents of that directory are
+              scanned.  Subdirectories  are ignored.  Up to 64 -I
+              are allowed.
+
+
+       --dd_d_a_t_a_b_a_s_e
+              Name of the database to create  or  update.  If  no
+              database  is  specified,  ssccaann__ccoommmmoonnss looks at the
+              value of the environment  variable  CCOOMMMMOONN__DDAATTAABBAASSEE
+              If   this  variable  points  to  a  database,  that
+              database will be used.
+
+
+
+Linux                      August 1996                          2
+
+
+
+
+
+SCAN_COMMONS(1)       ForUtil Fortran Tools       SCAN_COMMONS(1)
+
+
+       --xx_n_a_m_e Tells ssccaann__ccoommmmoonnss to exclude the named  file  when
+              scanning the files found with the _-_I _-_E options. Up
+              to 64 -x are allowed.
+
+
+       [[ffiilleess]]
+              Additional files to scan for common blocks
+
+
+DDIIAAGGNNOOSSTTIICCSS
+       The following warning messages can occur:
+
+       WWaarrnniinngg:: iinntteennddeedd ccoommmmeenntt ffoouunndd
+              scan_commons has detected a comment (a line  begin-
+              ning  with a *, c or C) which does not start at the
+              beginning of a line but before the seventh  column.
+
+       WWaarrnniinngg:: mmoorree tthhaann 1199 ccoonnttiinnuuaattiioonn lliinneess nneeaarr lliinnee XXXX
+              scan_commons  has  detected more than 19 successive
+              continuation lines. XX  indicates  near  what  line
+              this occurs.
+
+       PPaarrssee EErrrroorr:: uunnbbaallaanncceedd bbrraaccee oorr ddeelliimmiitteerr
+              a  unbalanced brace or delimiter has been detected.
+              When this happens, ssccaann__ccoommmmoonnss will tell you  near
+              what  line  this error occured. This is a non-fatal
+              error.
+
+       IInntteerrnnaall PPaarrssee EErrrroorr:: IInnvvaalliidd ttookkeenn rraannggee
+
+       IInntteerrnnaall PPaarrssee EErrrroorr:: FFaaiilleedd ttoo rreemmoovvee ccoommmmoonn kkeeyywwoorrddss
+              These are internal parser errors, which  will  most
+              likely  never be generated.  If these occur, please
+              contact the author. These errors are fatal.
+
+
+CCOOMMPPAATTIIBBIILLIITTYY
+       The generated database can be shared without  problems  on
+       different 32bit systems, but you can not access a database
+       generated on a 32bit system from a 16 or 64 bit system.
+
+       The MS-DOS versions have been built  with  flex  2.53  (no
+       changes to the source code) and gdbm 1.7.3, which required
+       some work to get it working under MS-DOS.
+
+       ssccaann__ccoommmmoonnss has run under HP-UX 9 and 10, SGI IRIX 5.2  &
+       5.3, DEC OSF1, SunOs 4.1 and 4.3, Cray Unicos, IBM AIX 3.2
+       & 4.1, Linux and MSDOS 6.2.  ssccaann__ccoommmmoonnss also runs  in  a
+       dos box under Windows 3.1, 3.11 and Win95.
+
+
+EENNVVIIRROONNMMEENNTT
+       CCOOMMMMOONN__DDAATTAABBAASSEE
+              Points  to  the location of a common database. This
+
+
+
+Linux                      August 1996                          3
+
+
+
+
+
+SCAN_COMMONS(1)       ForUtil Fortran Tools       SCAN_COMMONS(1)
+
+
+              environment variable is only used if the --dd_d_a_t_a_b_a_s_e
+              option is not given.
+
+
+DDIISSTTRRIIBBUUTTIIOONN PPOOLLIICCYY
+       All  utilities  in  this  fortran  utility  suite are dis-
+       tributed under the GNU Public License.
+
+
+BBUUGGSS
+       A known bug is a malloc  failure  when  updating  a  large
+       database  under  MS-DOS.   This is a gdbm-related failure,
+       and the only  solution  is  to  create  several,  smaller,
+       databases.
+
+       If  a  bug occurs, it will most likely be generated by the
+       MS-DOS versions of these tools. This will be mainly due to
+       the 640kb memory limit MS-DOS has.
+
+       If  you  think you have found a bug, you can send email to
+       the author, describing what the bug is, how you  generated
+       it  and if you can reproduce it. Also specify the platform
+       where this bug occured.
+
+
+AAUUTTHHOORR
+       Koen D'Hondt
+       ripley@xs4all.nl
+       (C)Copyright 1995-1996 by Ripley Software Development
+
+
+SSEEEE AALLSSOO
+       ggeett__ccoommmmoonn(1),   lliisstt__ccoommmmoonnss(1),   ffffllooww(1),   ffffssccaann(1),
+       ffttaaggss(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Linux                      August 1996                          4
+
+

@@ -1,0 +1,66 @@
+
+
+
+FTAGS(1)              ForUtil Fortran Tools              FTAGS(1)
+
+
+NAME
+       ftags - generate a vi tags file for f77 files.
+
+
+SYNOPSIS
+       ftags fortran-files
+
+
+DESCRIPTION
+       Generates  a  case-insensitive  tags file of given fortran
+       files for use with vi(1)
+
+
+COMPATIBILITY
+       ftags has run under HP-UX 9 and 10, SGI IRIX  5.2  &  5.3,
+       DEC  OSF1,  SunOs  4.1 and 4.3, Cray Unicos, IBM AIX 3.2 &
+       4.1, Linux and MSDOS 6.2.  ftags also runs in  a  dos  box
+       under Windows 3.1, 3.11 and Win95.
+
+
+DISTRIBUTION POLICY
+       All  utilities  in  this  fortran  utility  suite are dis-
+       tributed under the GNU Public License.
+
+
+BUGS
+       If a bug occurs, it will most likely be generated  by  the
+       MS-DOS versions of these tools. This will be mainly due to
+       the 640kb memory limit MS-DOS has.
+
+       If you think you have found a bug, you can send  email  to
+       the  author, describing what the bug is, how you generated
+       it and if you can reproduce it. Also specify the  platform
+       where this bug occured.
+
+
+AUTHOR
+       Koen D'Hondt
+       ripley@xs4all.nl
+       (C)Copyright 1995-1996 by Ripley Software Development
+
+
+SEE ALSO
+       fflow(1),   ffscan(1),   scan_commons(1),   get_common(1),
+       list_commons(1)
+
+
+
+
+
+
+
+
+
+
+
+
+Linux                      August 1996                          1
+
+

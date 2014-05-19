@@ -1,0 +1,12 @@
+loading cache ./config.cache
+checking for gcc... gcc
+checking whether we are using GNU C... no
+checking whether make sets ${MAKE}... configure.: ac_maketemp="make": not found
+no
+checking for ranlib... :
+checking for flex... lex
+checking for -ll... no
+checking for a BSD compatible install... ./install-sh -c
+checking for -lgdbm... no
+configure: warning: You need gdbm in order for the common stuff to work.
+checking for dirent.h that defines DIR... configure.: ${ac_cv_header_dirent_tr - GNU textutils 1.12+set}: bad substitution

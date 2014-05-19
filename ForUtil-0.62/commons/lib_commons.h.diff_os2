@@ -1,0 +1,21 @@
+*** lib_commons.h.orig	Thu Jan 23 00:36:30 1997
+--- lib_commons.h	Thu Jan 23 00:49:44 1997
+***************
+*** 43,50 ****
+  #include <stdlib.h>
+  #include <string.h>
+  #include <sys/types.h>
+- #include <sys/stat.h>
+  #include <gdbm.h>
+  #include <signal.h>
+  
+  /* database file permissions */
+--- 43,50 ----
+  #include <stdlib.h>
+  #include <string.h>
+  #include <sys/types.h>
+  #include <gdbm.h>
++ #include <sys/stat.h>
+  #include <signal.h>
+  
+  /* database file permissions */

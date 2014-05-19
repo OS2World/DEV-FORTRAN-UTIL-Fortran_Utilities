@@ -1,0 +1,69 @@
+# file: forut062_mine.txt
+
+This is the OS/2 port of the Fortran Utilities, v.0.62, by Koen D'Hondt
+(ripley@xs4all.nl).
+These tools are quite useful for Fotran programmers, I was pointed to
+them when I was looking for a utility that could generate a tags file
+from Fortran sources for use with vi. ftags included here can do that,
+it even handles fweb files (literate programming sources) rather well.
+
+(For people using ffscan it may be worthwile to check out ftnchek by 
+Robert Moniot which is more powerful.)
+
+
+Location:
+====================
+
+This has been uploaded (or will be moved from the respective /incoming
+areas) to:
+
+ ftp://ftp-os2.cdrom.com/pub/os2/dev32/forut062.zip
+ ftp://ftp-os2.nmsu.com/pub/os2/dev32/forut062.zip
+ ftp://ftp.leo.org/pub/comp/os/os2/devtools/utils/forut062.zip
+
+You will also want to check the web site of the author
+ http://www.xs4all.nl/~ripley/ForUtil.html
+since he may well fold the changes in a new release.
+
+
+Installation:
+====================
+
+You will need (these files can be found on the usual OS/2 ftp sites)
+
+* emxrtl.zip: the EMX runtime library (emx09b, fixpak 5, or later),
+  which should be installed. 
+
+In the archive you have things like:
+
+  -rwxrwxrwx    97369 Jan 23 00:17 exe/fflow.exe
+  -rwxrwxrwx   109263 Jan 23 00:19 exe/ffscan.exe
+  -rwxrwxrwx    40964 Nov 11 00:29 exe/ftags.exe
+  -rwxrwxrwx    80634 Jan 23 01:04 exe/get_common.exe
+  -rwxrwxrwx    87728 Jan 23 01:04 exe/list_commons.exe
+  -rwxrwxrwx   118324 Jan 23 01:04 exe/scan_commons.exe
+
+Copyrights and such:
+====================
+
+The copyright / licensing conditions of the original archive apply, see
+the file LICENSE etc. You use it at your own risk, and it shall be 
+stressed that:
+
+This program is distributed in the hope that it will be useful
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+
+Bugs and the like:
+==================
+
+Bugs clearly related to the OS/2 port to me (sad@utk.edu;
+stefand@elphy.irz.hu-berlin.de), even though I can't promise I will be
+able to fix them. After all this was just a re-compile, more or less.
+Bugs clearly related to the Fortran Tools themselves better to Koen
+D'Hondt (ripley@xs4all.nl). So.  Now have fun.     
+
+Stefan A. Deutscher                             2-Feb-1997
+(sad@utk.edu, stefand@elphy.irz.hu-berlin.de)

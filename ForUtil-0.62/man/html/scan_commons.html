@@ -1,0 +1,249 @@
+<HTML>
+<HEAD>
+<TITLE>scan_commons Manual Page</TITLE>
+</HEAD>
+<BODY>
+<PRE>
+
+</PRE>
+<H3>NAME</H3><PRE>
+       scan_commons - create a fortran f77 commons database.
+
+
+
+</PRE>
+<H3>SYNOPSIS</H3><PRE>
+       <STRONG>scan_commons</STRONG>  <STRONG>[-afhqrsv]</STRONG>  <STRONG>-E</STRONG><EM>ext</EM>  <STRONG>-I</STRONG><EM>dir</EM>  <STRONG>-d</STRONG><EM>database</EM>  <STRONG>-x</STRONG><EM>name</EM>
+       <STRONG>[files]</STRONG>
+
+
+
+</PRE>
+<H3>DESCRIPTION</H3><PRE>
+       <STRONG>scan_commons</STRONG> builds a database from the contents of common
+       blocks or variable declarations.  <STRONG>scan_commons</STRONG> is intended
+       to work with f77 include files  containing  common  blocks
+       and  global  variable declarations, but can works with f77
+       source files.
+
+       The following variable declarations are recognized:  <STRONG>CHAR-</STRONG>
+       <STRONG>ACTER,</STRONG>  <STRONG>COMMON,</STRONG>  <STRONG>COMPLEX,</STRONG> <STRONG>DOUBLE</STRONG> <STRONG>PRECISION,</STRONG> <STRONG>INTEGER,</STRONG> <STRONG>LOGI-</STRONG>
+       <STRONG>CAL,</STRONG> <STRONG>PARAMETER</STRONG> and <STRONG>REAL.</STRONG>
+
+       The generated database can  subsequently  be  used  for  a
+       quick  lookup  using  <a href="get_common.html">get_common</a>(1)  to  see  in which f77
+       include file a certain common variable is defined.
+
+       <STRONG>scan_commons</STRONG> uses the GNU database manager gdbm for  stor-
+       ing, checking and retrieving items in the database.
+
+
+
+</PRE>
+<H3>OPTIONS</H3><PRE>
+       <STRONG>-a</STRONG>     Add  duplicate  commons if they are defined in dif-
+              ferent include files. If you choose not to use this
+              flag,  duplicate  commons  defined in different f77
+              include files will not be stored in  the  generated
+              database.
+
+
+       <STRONG>-f</STRONG>     Store  filenames only. The default is to store path
+              and  filename.   Use  this   option   to   preserve
+              diskspace  (or  memory if you are running this tool
+              under MS-DOS).
+
+
+       <STRONG>-h,</STRONG> <STRONG>--help</STRONG>
+              gives a short overview of every option.
+
+
+       <STRONG>-q</STRONG>     be really quiet. This will only print fatal  errors
+              on stderr.  Usefull if called from a script.
+
+
+       <STRONG>-r</STRONG>     re-organize  the  database after creation/updating.
+              This may take a long time since  the  old  database
+              will be read, sorted and written again. This option
+              can be used standalone.
+
+       <STRONG>-s</STRONG>     safe operation: every time a common  is  found  the
+              database  will  be  updated  immediatly. Using this
+              option can slow  the  generation  or  update  of  a
+              database seriously down since no caching will done.
+
+
+       <STRONG>-v</STRONG>     Be verbose.  <STRONG>scan_commons</STRONG> will print out a list  of
+              directories  to visit, what extensions it is using,
+              the number of files it has to scan, a complete list
+              of  all  files to scan and a status report of every
+              file scanned.  The output of these statistics is as
+              follows:
+
+              Statistics for file foo.inc (9/67)
+              commons found      : 16
+                     The total number of commons found in foo.inc
+              duplicate commons  : 3
+                     The total number of duplicate commons  found
+                     in foo.inc. These duplicates can be found in
+                     another include file.
+              commons rejected   : 0
+                     Number of commons rejected. This number  can
+                     be different from 0 if you are performing an
+                     update of a database.
+              commons accepted   : 19
+                     Total number of commons accepted  for  stor-
+                     age.
+              commons stored     : 19
+                     Total number of commons actually stored.
+
+
+       <STRONG>--version</STRONG>
+              Shows the version number of <STRONG>scan_commons</STRONG>
+
+
+       <STRONG>-E</STRONG><EM>ext</EM>  Extensions <STRONG>scan_commons</STRONG> must use to determine which
+              files it has to scan. Up to eight -E  are  allowed.
+              Use  <EM>-E-</EM>  to  specify  no  extension.   The default
+              extension is the empty extension.
+
+
+       <STRONG>-I</STRONG><EM>dir</EM>  Using this option tells <STRONG>scan_commons</STRONG> which directo-
+              ries it has to search for f77 files containing com-
+              mon blocks. Only the contents of that directory are
+              scanned.  Subdirectories  are ignored.  Up to 64 -I
+              are allowed.
+
+
+       <STRONG>-d</STRONG><EM>database</EM>
+              Name of the database to create  or  update.  If  no
+              database  is  specified,  <STRONG>scan_commons</STRONG> looks at the
+              value of the environment  variable  <STRONG>COMMON_DATABASE</STRONG>
+              If   this  variable  points  to  a  database,  that
+              database will be used.
+
+       <STRONG>-x</STRONG><EM>name</EM> Tells <STRONG>scan_commons</STRONG> to exclude the named  file  when
+              scanning the files found with the <EM>-I</EM> <EM>-E</EM> options. Up
+              to 64 -x are allowed.
+
+
+       <STRONG>[files]</STRONG>
+              Additional files to scan for common blocks
+
+
+
+</PRE>
+<H3>DIAGNOSTICS</H3><PRE>
+       The following warning messages can occur:
+
+       <STRONG>Warning:</STRONG> <STRONG>intended</STRONG> <STRONG>comment</STRONG> <STRONG>found</STRONG>
+              scan_commons has detected a comment (a line  begin-
+              ning  with a *, c or C) which does not start at the
+              beginning of a line but before the seventh  column.
+
+       <STRONG>Warning:</STRONG> <STRONG>more</STRONG> <STRONG>than</STRONG> <STRONG>19</STRONG> <STRONG>continuation</STRONG> <STRONG>lines</STRONG> <STRONG>near</STRONG> <STRONG>line</STRONG> <STRONG>XX</STRONG>
+              scan_commons  has  detected more than 19 successive
+              continuation lines. XX  indicates  near  what  line
+              this occurs.
+
+       <STRONG>Parse</STRONG> <STRONG>Error:</STRONG> <STRONG>unbalanced</STRONG> <STRONG>brace</STRONG> <STRONG>or</STRONG> <STRONG>delimiter</STRONG>
+              a  unbalanced brace or delimiter has been detected.
+              When this happens, <STRONG>scan_commons</STRONG> will tell you  near
+              what  line  this error occured. This is a non-fatal
+              error.
+
+       <STRONG>Internal</STRONG> <STRONG>Parse</STRONG> <STRONG>Error:</STRONG> <STRONG>Invalid</STRONG> <STRONG>token</STRONG> <STRONG>range</STRONG>
+
+       <STRONG>Internal</STRONG> <STRONG>Parse</STRONG> <STRONG>Error:</STRONG> <STRONG>Failed</STRONG> <STRONG>to</STRONG> <STRONG>remove</STRONG> <STRONG>common</STRONG> <STRONG>keywords</STRONG>
+              These are internal parser errors, which  will  most
+              likely  never be generated.  If these occur, please
+              contact the author. These errors are fatal.
+
+
+
+</PRE>
+<H3>COMPATIBILITY</H3><PRE>
+       The generated database can be shared without  problems  on
+       different 32bit systems, but you can not access a database
+       generated on a 32bit system from a 16 or 64 bit system.
+
+       The MS-DOS versions have been built  with  flex  2.53  (no
+       changes to the source code) and gdbm 1.7.3, which required
+       some work to get it working under MS-DOS.
+
+       <STRONG>scan_commons</STRONG> has run under HP-UX 9 and 10, SGI IRIX 5.2  &amp;
+       5.3, DEC OSF1, SunOs 4.1 and 4.3, Cray Unicos, IBM AIX 3.2
+       &amp; 4.1, Linux and MSDOS 6.2.  <STRONG>scan_commons</STRONG> also runs  in  a
+       dos box under Windows 3.1, 3.11 and Win95.
+
+
+
+</PRE>
+<H3>ENVIRONMENT</H3><PRE>
+       <STRONG>COMMON_DATABASE</STRONG>
+              Points  to  the location of a common database. This
+              environment variable is only used if the <STRONG>-d</STRONG><EM>database</EM>
+              option is not given.
+
+
+
+</PRE>
+<H3>DISTRIBUTION POLICY</H3><PRE>
+       All  utilities  in  this  fortran  utility  suite are dis-
+       tributed under the GNU Public License.
+
+
+
+</PRE>
+<H3>BUGS</H3><PRE>
+       A known bug is a malloc  failure  when  updating  a  large
+       database  under  MS-DOS.   This is a gdbm-related failure,
+       and the only  solution  is  to  create  several,  smaller,
+       databases.
+
+       If  a  bug occurs, it will most likely be generated by the
+       MS-DOS versions of these tools. This will be mainly due to
+       the 640kb memory limit MS-DOS has.
+
+       If  you  think you have found a bug, you can send email to
+       the author, describing what the bug is, how you  generated
+       it  and if you can reproduce it. Also specify the platform
+       where this bug occured.
+
+
+
+</PRE>
+<H3>AUTHOR</H3><PRE>
+       Koen D'Hondt
+       ripley@xs4all.nl
+       (C)Copyright 1995-1996 by Ripley Software Development
+
+
+
+</PRE>
+<H3>SEE ALSO</H3><PRE>
+       <a href="get_common.html">get_common</a>(1),   <a href="list_commons.html">list_commons</a>(1),   <a href="fflow.html">fflow</a>(1),   <a href="ffscan.html">ffscan</a>(1),
+       <a href="ftags.html">ftags</a>(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

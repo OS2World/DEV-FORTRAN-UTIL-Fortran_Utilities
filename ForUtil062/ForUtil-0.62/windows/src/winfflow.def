@@ -1,0 +1,22 @@
+; rcsId=$Header: /usr/local/rcs/ForUtil/winfflow/RCS/winfflow.def,v 1.1 1996/08/18 18:34:38 koen Exp koen $
+;-----------------------------------------------------------------
+; winfflow.def: Winfflow module definition file
+;
+; This file version:	$Revision: 1.1 $
+;
+; Creaton Date:		Fri Aug 16 01:37:33 GMT+0100 1996
+; Last Modification:	$Date: 1996/08/18 18:34:38 $
+;
+; Author: 		koen
+; (C)1995-1996 Ripley Software Development
+; All Rights Reserved
+;-----------------------------------------------------------------
+; 
+DESCRIPTION 'Winfflow'
+NAME WINFFLOW
+EXETYPE WINDOWS
+STUB 'WINSTUB.EXE'
+CODE PRELOAD MOVEABLE DISCARDABLE
+DATA PRELOAD MOVEABLE MULTIPLE
+HEAPSIZE 4096
+STACKSIZE 8192

@@ -1,0 +1,311 @@
+.\" Process this file with
+.\" groff -man -Tascii foo.1
+.\"
+.TH FFLOW 1 "August 1996" Linux "ForUtil Fortran Tools"
+.SH NAME
+fflow \- generate a flowgraph for fortran files.
+.SH SYNOPSIS
+.B fflow  [\-cefhinpqtuv]
+.BI \-E ext 
+.BI \-I dir 
+.BI \-d depth 
+.BI \-l level
+.BI \-o file 
+.BI \-s name 
+.BI \-x name
+.B "[files]"
+
+.SH DESCRIPTION
+.B fflow
+Generates a (partial) flowgraph of a collection of fortran files.
+When fed with a couple of directories and/or files, 
+.B fflow 
+creates
+a flowgraph indicating the flow in your program. The output is written
+on stdout by default but can be written to file. 
+.B fflow 
+is very usefull for large programs where you only want to see
+the flowgraph of a certain part of a program. 
+
+.SH OPTIONS
+.TP
+.B "\-c"
+Using this option instructs 
+.B fflow 
+to generate a complete flowgraph for
+each subroutine or function it encounters. By default, 
+.B fflow 
+will place
+a == Line XX == in the output for each subroutine or function for which it
+has already generated a flowgraph. Beware though that using this option can
+significantly increase the size of the output file and that it can take a
+little longer to generate all flowgraphs.
+
+.TP
+.B "\-e"
+Using this option will cause 
+.B fflow 
+to not include functions 
+without calls in the output. Helps to decrease the size
+of the output file.
+
+.TP
+.B "\-f"	
+Include the full path of files in the output. The default is
+to print the name of the file only. Using this option increases the 
+memory 
+.B fflow 
+uses to store its data, so it might be unwise to 
+use this option on msdos systems with their 640kb memory limit.
+
+.TP
+.B "\-h, \-\-help"
+gives a short description of every option you can use.
+
+.TP
+.B "\-i"
+Using this option causes 
+.B fflow 
+to not print unknown function 
+calls in the output. Usefull if you only want to have a 
+flowgraph of a part of a source tree.
+
+.TP
+.B "\-n, \-n\-"
+Using this option will cause 
+.B fflow 
+to tell what subroutines are
+never invoked. If you only want to check your files for this and
+do not want to generate a flowgraph, use -n-
+
+.TP
+.B "\-p"
+Starts the flowgraph at the PROGRAM definition. When used
+with 
+.B "\-u"
+, 
+.B fflow 
+generates a flowgraph for PROGRAM only. 
+
+Note: if you use the 
+.B "\-u"
+option, 
+.B fflow
+will generate a flowgraph for the first PROGRAM statement it encounters.
+
+.TP
+.B "\-q"
+Be really quiet (usefull if called from a script). Only 
+error messages will be shown.
+
+.TP
+.B "\-t"
+Use tabs instead of | as level indicator. 
+
+.TP
+.B "\-u"
+Do not print unused functions in the output file. 
+Using this option will cause 
+.B fflow 
+to not print functions
+and/or routines which are not referenced.
+Use the 
+.B "\-n"
+or
+.B "\-n\-"
+option if you only want to print unused subroutines.
+
+.TP
+.B "\-v"
+Be verbose. Using this option shows a lot of usefull 
+information about the files being scanned.
+
+.TP
+.B "\-\-version"
+Show the version number of 
+.B fflow
+.
+
+.TP
+.BI \-E ext
+Extensions 
+.B fflow 
+must use to determine which files it 
+has to scan. Up to eight -E are allowed. 
+The default extension is .f
+
+.TP
+.BI \-I dir
+Using this option tells 
+.B fflow 
+which directories it has
+to search for f77 files. Only the contents of that 
+directory are scanned. Subdirectories are ignored. 
+Up to 64 -I are allowed.
+
+.TP
+.BI \-d depth
+Sets the maximum recursion depth to depth. The default
+value is 64. This recursion depth is the maximum depth 
+of function calls, and is mainly used as a test for
+detecting recursion. If 
+.B fflow 
+manages to get to the 
+default value, this probably indicates that somewhere
+in your program infinite recursion might occur. If
+.B fflow 
+aborts saying it has reached the maximum recursion
+depth, it means that this number has been hit. If you
+are absolutely sure that recursion does not appear in
+your program, you can increase this number to the maximum
+value of an unsigned integer on your system.
+
+The default value of 64 should be enough for any program.
+
+.TP
+.BI \-l level
+Using this option will cause
+.B fflow
+to generate a flowgraph which is only
+.I level
+levels deep. This option can be very usefull to get a general idea on the
+flow in a very large program. It also will help reduce the size of the 
+generated flowgraph.
+
+.TP
+.BI \-o file
+file to write flowgraph to. The default is stdout.
+
+.TP
+.BI \-s name
+This option causes 
+.B fflow 
+to start the output file with
+the named function. 
+When used with 
+.B "\-u"
+, 
+.B fflow 
+generates a flowgraph for this
+function only.
+
+.TP
+.BI \-x name
+Tells 
+.B fflow 
+to exclude the named file when scanning 
+the files found with the 
+.I "\-I \-E"
+options. Up to 64 -x options can be given.
+
+.SH EXAMPLES
+.B fflow \-p \-u fortran\-files
+generates a flowgraph for your 
+program only.
+
+.B fflow 
+.BI \-s name
+.B "\-u fortran\-files" 
+generates a flowgraph for 
+.I "[name]"
+only.
+
+.B fflow 
+.BI \-I dir1 
+.BI \-I dir2 
+.BI \-E \.f 
+.BI \-E \.f,v
+generates a flowgraph from files 
+ending in 
+.I "\.f" 
+and 
+.I "\.f,v" 
+from the directories dir1 and dir2.
+
+.SH DIAGNOSTICS
+The following warning messages can occur:
+.TP
+.BI "WARNING: no program entry point found in file " "<file>"
+a call statement was encountered before a PROGRAM statement was found. 
+.B fflow
+will use the name of the file where this warning occurs as a program name
+and continue.
+.TP
+.B Write failed
+This error can occur when 
+.B fflow
+is writing a flowgraph to file and a write error occurs. 
+The most likely reasons for this error to occur are
+.I disk full
+or 
+.I no space left on device
+
+The flowgraph generated by
+.B fflow
+can be very huge. We have seen a complete flowgraph of a single function which
+was in excess of 50MB, so it's easy to fill up your disk. When you encounter
+such large flowgraphs, you might want to use the 
+.BI -l level
+option in order to generate a useable flowgraph.
+
+.SH DISTRIBUTION POLICY
+All utilities in this fortran utility suite are distributed under
+the GNU Public License.
+
+.SH COMPATIBILITY
+.B fflow 
+has run under HP-UX 9 and 10, SGI IRIX 5.2 & 5.3, DEC OSF1, SunOs 4.1
+and 4.3, Cray Unicos, IBM AIX 3.2 & 4.1, Linux and MSDOS 6.2. 
+.B fflow 
+also runs in a dos box under Windows 3.1, 3.11 and Win95. An MS-Windows version,
+Winfflow, is also available.
+
+.SH SHORTCOMINGS
+The output of 
+.B fflow 
+contains a flowgraph for each subroutine or function 
+found in the input files. When you give 
+.B fflow 
+the 
+.I "\-c"
+option, it can take a long time to write
+the flowgraph to file if you have fed it a collection of source
+files with a huge number of calls. This can be annoying especially
+when running 
+.B fflow 
+on MSDOS.
+
+Currently, 
+.B fflow 
+only looks at CALL, so although FUNCTION is found,
+these do not show up in the flowgraph.
+
+.SH BUGS
+The MS-DOS versions of these tools can cause problems under MS-DOS if
+you feed them with a large collection of files, few files with a lot
+of calls or a combination of both. This is totally due to the 640kb memory
+limit MS-DOS has. 
+
+If you think you have found a bug, you can send email to the author,
+describing what the bug is, how you generated it and if you can
+reproduce it. Also specify the platform where this bug occured.
+
+.SH AUTHOR
+.RS
+.RE
+Koen D'Hondt
+.RS
+.RE
+ripley@xs4all.nl
+.RS
+.RE
+(C)Copyright 1995-1996 by Ripley Software Development
+.RE
+
+.SH SEE ALSO
+.BR ftags (1), 
+.BR ffscan (1),
+.BR scan_commons (1), 
+.BR get_common (1), 
+.BR list_commons (1)
+

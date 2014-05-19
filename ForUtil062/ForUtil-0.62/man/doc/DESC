@@ -1,0 +1,47 @@
+fflow
+       fflow Generates a (partial) flowgraph of a  collection  of
+       fortran  files.   When  fed  with  a couple of directories
+       and/or files, fflow creates  a  flowgraph  indicating  the
+       flow  in  your program. The output is written on stdout by
+       default but can be written to file.  fflow is very usefull
+       for  large  programs  where you only want to see the flow-
+       graph of a certain part of a program.
+
+       There is a heavily modified version available for use with
+       MS-Windows  3.1  called  Winfflow. Winfflow has  only been 
+       tested under Windows 3.1, but will probably also run under
+       Windows 3.11 and Win95.
+
+ffscan
+       ffscan  scans a collection of fortran files and checks the
+       argument counts of every call made against its definition.
+       When a mismatch occurs, ffscan will tell you in which file
+       this particular call is made, and it will also  tell  what
+       the  correct  number of arguments should be, together with
+       the name of the file where the subroutine in question  can
+       be  found.   ffscan  does  not do any type checking on the
+       arguments, it simply counts them.
+
+ftags
+       Generates  a  case-insensitive  tags file of given fortran
+       files for use with vi(1)
+
+get_common
+       get_common can be used to quickly see in what f77  include
+       file  a certain f77 common is defined.  get_common queries
+       a database generated with scan_commons(1).
+
+list_commons
+       list_commons can be used to manually check the contents of
+       a  common  database. It outputs every common it finds in a
+       given database.  list_commons examines a  database  gener-
+       ated with scan_commons(1).
+
+scan_commons
+       scan_commons builds a database from any given f77  include
+       files  containing  common blocks. This database can subse-
+       quently be used for a quick lookup using get_common(1)  to
+       see in which f77 include file a certain common is defined.
+       scan_commons uses the GNU database manager gdbm for  stor-
+       ing, checking and retrieving items in the database.
+

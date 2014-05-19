@@ -1,0 +1,52 @@
+Version 0.62
+- more work on winfflow.
+- updated scanner rules for fflow, winfflow and ffscan.
+- updated scanner rules in scan_commons to pick up DOUBLE, COMPLEX.
+- updated scan_commons so it will pick up all variable declarations inside
+  fortran source files also.
+- list_commons now reports the total number of variable declarations stored as 
+  well as the total number of unique variable declarations also.
+- corrected a bug in ffscan: single quotes are now treated correctly.
+- added a license.txt for binary distributions.
+- Second official release into the public domain.
+
+Version 0.61 (never released)
+- Added winfflow, a MS-Windows version of fflow.
+
+Version 0.60
+- fixed the scanner rules in scan_commons to also pick PARAMETER declarations
+  in header files.
+- fixed a bug with the -Eext option.
+- fixed a bug in strend.
+- finally fixed the MSDOS versions (problems were due to stack overflow. 
+  The size of stack and heap can be set in lib/sysdeps.h).
+  They should perform pretty okay now.
+- added the -n and -ofile option to ffscan.
+- added warning messages if the maximum number of the -I, -E and -x options
+  are about to be exceeded.
+- fixed a bug in the count_args routine in ffscan.l This bug was hidden under
+  unix where the name part of a filename is a large number. Under msdos this
+  length is 12, which gave problems with fortran routines that have names
+  longer than that.
+- put msdos pwd emulation functions in msdospwd.h and msdospwd.c.
+- updated all documentation.
+- updated Makefiles. They are a whee bit more gnu-like now.
+
+Versions 0.54 to 0.59 (never released)
+- A lot of work went into ffscan, a little program which performs a 
+  argument count of subroutines. Especially the flex rules to pick up
+  all possible combinations of arguments gave me a headache.
+- changed configure so it does not give up with an error if it can't find 
+  libgdbm.a or gdbm.h
+- fixed a number of small bugs and added numerous enhancments in the code
+- updated man pages
+- added the --help and --version options to all tools except ftags.
+- put all system dependencies into one single header file (sysdeps.h) as
+  to minimize system specific #ifdef/#endif in general code.
+
+Version 0.53
+- intermediate release with a few bugfixes.
+  unofficial public domain release.
+
+Version 0.53
+- First official release into the public domain.

@@ -1,0 +1,132 @@
+
+
+
+GET_COMMON(1)         ForUtil Fortran Tools         GET_COMMON(1)
+
+
+NNAAMMEE
+       get_common  - get the name of a file where a f77 common is
+       defined.
+
+
+SSYYNNOOPPSSIISS
+       ggeett__ccoommmmoonn [[--cchhvv]] --dd_d_a_t_a_b_a_s_e ccoommmmoonn
+
+
+DDEESSCCRRIIPPTTIIOONN
+       ggeett__ccoommmmoonn can be used to quickly see in what f77  include
+       file  a certain f77 common is defined.  ggeett__ccoommmmoonn queries
+       a database generated with ssccaann__ccoommmmoonnss(1).
+
+
+OOPPTTIIOONNSS
+       --cc     case sensitive search, default is off.
+
+
+       --hh,, ----hheellpp
+              Shows a short description of every option.
+
+
+       --vv     show database version information. This information
+              consists  of  the name of the user that has created
+              this database, the machine and  system  name  where
+              this  database was created on, the date of the last
+              update  of  this  database,  and  the   directories
+              stored.
+
+
+       ----vveerrssiioonn
+              Shows the version number of ggeett__ccoommmmoonn
+
+
+       --dd_d_a_t_a_b_a_s_e
+              Name  of  the  database to query. If no database is
+              given, the value of CCOOMMMMOONN__DDAATTAABBAASSEE is checked.
+
+
+       ccoommmmoonn The name of the common you wish to locate. If  this
+              common  is  defined  in  multiple  files, all files
+              where this common is defined will be shown.
+
+
+CCOOMMPPAATTIIBBIILLIITTYY
+       ggeett__ccoommmmoonn has run under HP-UX 9 and 10, SGI  IRIX  5.2  &
+       5.3, DEC OSF1, SunOs 4.1 and 4.3, Cray Unicos, IBM AIX 3.2
+       & 4.1, Linux and MSDOS 6.2.  ggeett__ccoommmmoonn also runs in a dos
+       box under Windows 3.1, 3.11 and Win95.
+
+
+EENNVVIIRROONNMMEENNTT
+
+
+
+
+Linux                      August 1996                          1
+
+
+
+
+
+GET_COMMON(1)         ForUtil Fortran Tools         GET_COMMON(1)
+
+
+       CCOOMMMMOONN__DDAATTAABBAASSEE
+              Points  to  the location of a common database. This
+              environment variable is only used if the --dd_d_a_t_a_b_a_s_e
+              option is not given.
+
+
+DDIISSTTRRIIBBUUTTIIOONN PPOOLLIICCYY
+       All  utilities  in  this  fortran  utility  suite are dis-
+       tributed under the GNU Public License.
+
+
+BBUUGGSS
+       If a bug occurs, it will most likely be generated  by  the
+       MS-DOS versions of these tools. This will be mainly due to
+       the 640kb memory limit MS-DOS has.
+
+       If you think you have found a bug, you can send  email  to
+       the  author, describing what the bug is, how you generated
+       it and if you can reproduce it. Also specify the  platform
+       where this bug occured.
+
+
+AAUUTTHHOORR
+       Koen D'Hondt
+       ripley@xs4all.nl
+       (C)Copyright 1995-1996 by Ripley Software Development
+
+
+SSEEEE AALLSSOO
+       ssccaann__ccoommmmoonnss(1),   lliisstt__ccoommmmoonnss(1),  ffffllooww(1),  ffffssccaann(1),
+       ffttaaggss(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Linux                      August 1996                          2
+
+

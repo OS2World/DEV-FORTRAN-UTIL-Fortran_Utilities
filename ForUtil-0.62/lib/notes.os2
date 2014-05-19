@@ -1,0 +1,13 @@
+To avoid complaints use:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+instead of 
+
+#include <sys/stat.h>
+#include <sys/types.h>
+
+
+in commons/lib_commons.h
+and lib/environment.c

@@ -1,0 +1,157 @@
+#
+# $Header: /usr/local/rcs/ForUtil/toplevel/RCS/Makefile.in,v 1.1 1996/08/07 21:09:24 koen Exp koen $
+#
+# ForUtil toplevel Makefile.in for directory with subdirs to build
+#
+# (C)Copyright 1995-1996 Ripley Software Development
+# All Rights Reserved
+#
+# This file is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA. 
+
+VERSION = 0.62
+
+CC= @CC@ 
+RM= rm -f
+SHELL= /bin/sh
+
+# If you do not want to build commons, remove commons from the line below.
+# Likewise if you do not want fflow, ftags or ffscan.
+# do _not_ remove lib from this line, it's used by all programs.
+#
+SUBDIRS = lib commons ffscan fflow ftags
+
+# You can override CFLAGS on the command line to use whatever flags your
+# compiler needs
+CFLAGS= -g
+
+# Ditto for LDFLAGS
+LDFLAGS=
+
+# Use this if you need additional defines to compile the source
+# HPUX might need -D_HPUX_SOURCE and -D_POSIX_SOURCE
+# SunOs might need -D_POSIX_SOURCE
+CPPFLAGS=
+
+# Ditto for additional includes and libs
+INCLUDES=
+LOADLIBES=
+
+#
+# Installation program, paths and flags
+install=@INSTALL@
+
+srcdir = @srcdir@
+prefix = @prefix@
+exec_prefix = $(prefix)
+bindir = $(exec_prefix)/bin
+mandir = $(prefix)/man
+man1dir = $(mandir)/man1
+cat1dir = $(mandir)/cat1
+
+maninst_flags= -c -m 444
+bininst_flags= -c -m 755 
+
+### End of User configurable section ###
+
+pass_flags = SHELL='$(SHELL)' \
+	CFLAGS='$(CFLAGS)' \
+	CPPFLAGS='$(CPPFLAGS)' \
+	INCLUDES='$(INCLUDES)' \
+	LOADLIBES='$(LOADLIBES)' \
+	LDFLAGS='$(LDFLAGS)' 
+
+inst_flags = bindir='$(bindir)' \
+	install_opts='$(bininst_flags)'
+
+#### Start of possible targets
+
+all::
+	@( for dir in $(SUBDIRS) ; do \
+		(set -x ; cd $$dir ; $(MAKE) $(pass_flags)) ; \
+	done)
+
+depend:: 
+	@( for dir in $(SUBDIRS) ; do \
+		(set -x ; cd $$dir ; $(MAKE) depend $(pass_flags)) ; \
+	done)
+
+install::
+	@( for dir in $(SUBDIRS) ; do \
+		(set -x;cd $$dir;$(MAKE) install $(pass_flags) $(inst_flags)) ; \
+	done)
+
+uninstall::
+	@( for dir in $(SUBDIRS) ; do \
+		(set -x;cd $$dir;$(MAKE) uninstall $(pass_flags) $(inst_flags)) ; \
+	done)
+
+# Install preformatted man pages in man/cat1
+install.cat::
+	$(install) $(maninst_flags) man/preformat/fflow.1 $(cat1dir)
+	$(install) $(maninst_flags) man/preformat/ffscan.1 $(cat1dir)
+	$(install) $(maninst_flags) man/preformat/ftags.1 $(cat1dir)
+	$(install) $(maninst_flags) man/preformat/get_common.1 $(cat1dir)
+	$(install) $(maninst_flags) man/preformat/list_commons.1 $(cat1dir)
+	$(install) $(maninst_flags) man/preformat/scan_commons.1 $(cat1dir)
+
+# Install raw (groff source) man pages in man/man1
+install.man::
+	$(install) $(maninst_flags) man/man/fflow.1 $(man1dir)
+	$(install) $(maninst_flags) man/man/ffscan.1 $(man1dir)
+	$(install) $(maninst_flags) man/man/ftags.1 $(man1dir)
+	$(install) $(maninst_flags) man/man/get_common.1 $(man1dir)
+	$(install) $(maninst_flags) man/man/list_commons.1 $(man1dir)
+	$(install) $(maninst_flags) man/man/scan_commons.1 $(man1dir)
+
+install.all: install install.man install.cat
+.PHONY: install.all
+
+# Remove (possible compressed) pages in man/cat1 directory
+uninstall.cat::
+	$(RM) $(cat1dir)/fflow.1*
+	$(RM) $(cat1dir)/ffscan.1*
+	$(RM) $(cat1dir)/ftags.1*
+	$(RM) $(cat1dir)/get_common.1*
+	$(RM) $(cat1dir)/list_commons.1*
+	$(RM) $(cat1dir)/scan_commons.1*
+
+# Remove (possible compressed) pages in man/man1 directory
+uninstall.man::
+	$(RM) $(man1dir)/fflow.1*
+	$(RM) $(man1dir)/ffscan.1*
+	$(RM) $(man1dir)/ftags.1*
+	$(RM) $(man1dir)/get_common.1*
+	$(RM) $(man1dir)/list_commons.1*
+	$(RM) $(man1dir)/scan_commons.1*
+
+uninstall.all: uninstall uninstall.man uninstall.cat
+.PHONY: uninstall.all
+
+mostlyclean:: 
+	@( for dir in $(SUBDIRS) ; do \
+		(set -x ; cd $$dir ; $(MAKE) mostlyclean $(pass_flags) ) ; \
+	done)
+
+clean:: 
+	@( for dir in $(SUBDIRS) ; do \
+		(set -x ; cd $$dir ; $(MAKE) clean $(pass_flags) ) ; \
+	done)
+
+distclean:: clean
+	@( for dir in $(SUBDIRS) ; do \
+		(set -x ; cd $$dir ; $(MAKE) distclean $(pass_flags) ) ; \
+	done)
+	$(RM) config.status Makefile autoconf.h config.cache config.log
+	$(RM) *.bak *.out core a.out

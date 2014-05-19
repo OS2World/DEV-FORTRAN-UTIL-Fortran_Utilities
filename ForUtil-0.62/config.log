@@ -1,0 +1,15 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:724: sys/ndir.h: No such file or directory
+configure: In function `t':
+configure:727: `DIR' undeclared (first use this function)
+configure:727: (Each undeclared identifier is reported only once
+configure:727: for each function it appears in.)
+configure:727: `dirp' undeclared (first use this function)
+configure:724: ndir.h: No such file or directory
+configure: In function `t':
+configure:727: `DIR' undeclared (first use this function)
+configure:727: (Each undeclared identifier is reported only once
+configure:727: for each function it appears in.)
+configure:727: `dirp' undeclared (first use this function)

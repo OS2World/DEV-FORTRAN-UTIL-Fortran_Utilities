@@ -1,0 +1,264 @@
+
+
+
+SCAN_COMMONS(1)       ForUtil Fortran Tools       SCAN_COMMONS(1)
+
+
+NAME
+       scan_commons - create a fortran f77 commons database.
+
+
+SYNOPSIS
+       scan_commons  [-afhqrsv]  -Eext  -Idir  -ddatabase  -xname
+       [files]
+
+
+DESCRIPTION
+       scan_commons builds a database from the contents of common
+       blocks or variable declarations.  scan_commons is intended
+       to work with f77 include files  containing  common  blocks
+       and  global  variable declarations, but can works with f77
+       source files.
+
+       The following variable declarations are recognized:  CHAR-
+       ACTER,  COMMON,  COMPLEX, DOUBLE PRECISION, INTEGER, LOGI-
+       CAL, PARAMETER and REAL.
+
+       The generated database can  subsequently  be  used  for  a
+       quick  lookup  using  get_common(1)  to  see  in which f77
+       include file a certain common variable is defined.
+
+       scan_commons uses the GNU database manager gdbm for  stor-
+       ing, checking and retrieving items in the database.
+
+
+OPTIONS
+       -a     Add  duplicate  commons if they are defined in dif-
+              ferent include files. If you choose not to use this
+              flag,  duplicate  commons  defined in different f77
+              include files will not be stored in  the  generated
+              database.
+
+
+       -f     Store  filenames only. The default is to store path
+              and  filename.   Use  this   option   to   preserve
+              diskspace  (or  memory if you are running this tool
+              under MS-DOS).
+
+
+       -h, --help
+              gives a short overview of every option.
+
+
+       -q     be really quiet. This will only print fatal  errors
+              on stderr.  Usefull if called from a script.
+
+
+       -r     re-organize  the  database after creation/updating.
+              This may take a long time since  the  old  database
+              will be read, sorted and written again. This option
+              can be used standalone.
+
+
+
+Linux                      August 1996                          1
+
+
+
+
+
+SCAN_COMMONS(1)       ForUtil Fortran Tools       SCAN_COMMONS(1)
+
+
+       -s     safe operation: every time a common  is  found  the
+              database  will  be  updated  immediatly. Using this
+              option can slow  the  generation  or  update  of  a
+              database seriously down since no caching will done.
+
+
+       -v     Be verbose.  scan_commons will print out a list  of
+              directories  to visit, what extensions it is using,
+              the number of files it has to scan, a complete list
+              of  all  files to scan and a status report of every
+              file scanned.  The output of these statistics is as
+              follows:
+
+              Statistics for file foo.inc (9/67)
+              commons found      : 16
+                     The total number of commons found in foo.inc
+              duplicate commons  : 3
+                     The total number of duplicate commons  found
+                     in foo.inc. These duplicates can be found in
+                     another include file.
+              commons rejected   : 0
+                     Number of commons rejected. This number  can
+                     be different from 0 if you are performing an
+                     update of a database.
+              commons accepted   : 19
+                     Total number of commons accepted  for  stor-
+                     age.
+              commons stored     : 19
+                     Total number of commons actually stored.
+
+
+       --version
+              Shows the version number of scan_commons
+
+
+       -Eext  Extensions scan_commons must use to determine which
+              files it has to scan. Up to eight -E  are  allowed.
+              Use  -E-  to  specify  no  extension.   The default
+              extension is the empty extension.
+
+
+       -Idir  Using this option tells scan_commons which directo-
+              ries it has to search for f77 files containing com-
+              mon blocks. Only the contents of that directory are
+              scanned.  Subdirectories  are ignored.  Up to 64 -I
+              are allowed.
+
+
+       -ddatabase
+              Name of the database to create  or  update.  If  no
+              database  is  specified,  scan_commons looks at the
+              value of the environment  variable  COMMON_DATABASE
+              If   this  variable  points  to  a  database,  that
+              database will be used.
+
+
+
+Linux                      August 1996                          2
+
+
+
+
+
+SCAN_COMMONS(1)       ForUtil Fortran Tools       SCAN_COMMONS(1)
+
+
+       -xname Tells scan_commons to exclude the named  file  when
+              scanning the files found with the -I -E options. Up
+              to 64 -x are allowed.
+
+
+       [files]
+              Additional files to scan for common blocks
+
+
+DIAGNOSTICS
+       The following warning messages can occur:
+
+       Warning: intended comment found
+              scan_commons has detected a comment (a line  begin-
+              ning  with a *, c or C) which does not start at the
+              beginning of a line but before the seventh  column.
+
+       Warning: more than 19 continuation lines near line XX
+              scan_commons  has  detected more than 19 successive
+              continuation lines. XX  indicates  near  what  line
+              this occurs.
+
+       Parse Error: unbalanced brace or delimiter
+              a  unbalanced brace or delimiter has been detected.
+              When this happens, scan_commons will tell you  near
+              what  line  this error occured. This is a non-fatal
+              error.
+
+       Internal Parse Error: Invalid token range
+
+       Internal Parse Error: Failed to remove common keywords
+              These are internal parser errors, which  will  most
+              likely  never be generated.  If these occur, please
+              contact the author. These errors are fatal.
+
+
+COMPATIBILITY
+       The generated database can be shared without  problems  on
+       different 32bit systems, but you can not access a database
+       generated on a 32bit system from a 16 or 64 bit system.
+
+       The MS-DOS versions have been built  with  flex  2.53  (no
+       changes to the source code) and gdbm 1.7.3, which required
+       some work to get it working under MS-DOS.
+
+       scan_commons has run under HP-UX 9 and 10, SGI IRIX 5.2  &
+       5.3, DEC OSF1, SunOs 4.1 and 4.3, Cray Unicos, IBM AIX 3.2
+       & 4.1, Linux and MSDOS 6.2.  scan_commons also runs  in  a
+       dos box under Windows 3.1, 3.11 and Win95.
+
+
+ENVIRONMENT
+       COMMON_DATABASE
+              Points  to  the location of a common database. This
+
+
+
+Linux                      August 1996                          3
+
+
+
+
+
+SCAN_COMMONS(1)       ForUtil Fortran Tools       SCAN_COMMONS(1)
+
+
+              environment variable is only used if the -ddatabase
+              option is not given.
+
+
+DISTRIBUTION POLICY
+       All  utilities  in  this  fortran  utility  suite are dis-
+       tributed under the GNU Public License.
+
+
+BUGS
+       A known bug is a malloc  failure  when  updating  a  large
+       database  under  MS-DOS.   This is a gdbm-related failure,
+       and the only  solution  is  to  create  several,  smaller,
+       databases.
+
+       If  a  bug occurs, it will most likely be generated by the
+       MS-DOS versions of these tools. This will be mainly due to
+       the 640kb memory limit MS-DOS has.
+
+       If  you  think you have found a bug, you can send email to
+       the author, describing what the bug is, how you  generated
+       it  and if you can reproduce it. Also specify the platform
+       where this bug occured.
+
+
+AUTHOR
+       Koen D'Hondt
+       ripley@xs4all.nl
+       (C)Copyright 1995-1996 by Ripley Software Development
+
+
+SEE ALSO
+       get_common(1),   list_commons(1),   fflow(1),   ffscan(1),
+       ftags(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Linux                      August 1996                          4
+
+

@@ -1,0 +1,304 @@
+<HTML>
+<HEAD>
+<TITLE>fflow Manual Page</TITLE>
+</HEAD>
+<BODY>
+<PRE>
+
+</PRE>
+<H3>NAME</H3><PRE>
+       fflow - generate a flowgraph for fortran files.
+
+
+</PRE>
+<H3>SYNOPSIS</H3><PRE>
+       <STRONG>fflow</STRONG>  <STRONG>[-cefhinpqtuv]</STRONG>  <STRONG>-E</STRONG><EM>ext</EM>  <STRONG>-I</STRONG><EM>dir</EM> <STRONG>-d</STRONG><EM>depth</EM> <STRONG>-l</STRONG><EM>level</EM> <STRONG>-o</STRONG><EM>file</EM>
+       <STRONG>-s</STRONG><EM>name</EM> <STRONG>-x</STRONG><EM>name</EM> <STRONG>[files]</STRONG>
+
+
+
+</PRE>
+<H3>DESCRIPTION</H3><PRE>
+       <STRONG>fflow</STRONG> Generates a (partial) flowgraph of a  collection  of
+       fortran  files.   When  fed  with  a couple of directories
+       and/or files, <STRONG>fflow</STRONG> creates  a  flowgraph  indicating  the
+       flow  in  your program. The output is written on stdout by
+       default but can be written to file.  <STRONG>fflow</STRONG> is very usefull
+       for  large  programs  where you only want to see the flow-
+       graph of a certain part of a program.
+
+
+
+</PRE>
+<H3>OPTIONS</H3><PRE>
+       <STRONG>-c</STRONG>     Using this option instructs  <STRONG>fflow</STRONG>  to  generate  a
+              complete  flowgraph for each subroutine or function
+              it encounters. By default, <STRONG>fflow</STRONG> will  place  a  ==
+              Line  XX  ==  in  the output for each subroutine or
+              function for which it has already generated a flow-
+              graph.  Beware  though  that  using this option can
+              significantly increase the size of the output  file
+              and  that  it  can take a little longer to generate
+              all flowgraphs.
+
+
+       <STRONG>-e</STRONG>     Using this option will cause <STRONG>fflow</STRONG> to  not  include
+              functions  without  calls  in  the output. Helps to
+              decrease the size of the output file.
+
+
+       <STRONG>-f</STRONG>     Include the full path of files in the  output.  The
+              default  is  to  print  the  name of the file only.
+              Using this option increases the memory  <STRONG>fflow</STRONG>  uses
+              to  store  its  data,  so it might be unwise to use
+              this option on msdos systems with their 640kb  mem-
+              ory limit.
+
+
+       <STRONG>-h,</STRONG> <STRONG>--help</STRONG>
+              gives  a  short description of every option you can
+              use.
+
+
+       <STRONG>-i</STRONG>     Using this option causes <STRONG>fflow</STRONG> to not print unknown
+              function  calls  in the output. Usefull if you only
+              want to have a flowgraph of  a  part  of  a  source
+              tree.
+
+
+       <STRONG>-n,</STRONG> <STRONG>-n-</STRONG>
+              Using  this  option  will  cause <STRONG>fflow</STRONG> to tell what
+              subroutines are never invoked. If you only want  to
+              check your files for this and do not want to gener-
+              ate a flowgraph, use -n-
+
+
+       <STRONG>-p</STRONG>     Starts the flowgraph  at  the  PROGRAM  definition.
+              When used with <STRONG>-u</STRONG> , <STRONG>fflow</STRONG> generates a flowgraph for
+              PROGRAM only.
+
+              Note: if you use the <STRONG>-u</STRONG> option, <STRONG>fflow</STRONG> will generate
+              a  flowgraph  for  the  first  PROGRAM statement it
+              encounters.
+
+
+       <STRONG>-q</STRONG>     Be really quiet (usefull if called from a  script).
+              Only error messages will be shown.
+
+
+       <STRONG>-t</STRONG>     Use tabs instead of | as level indicator.
+
+
+       <STRONG>-u</STRONG>     Do  not  print unused functions in the output file.
+              Using this option will cause  <STRONG>fflow</STRONG>  to  not  print
+              functions and/or routines which are not referenced.
+              Use the <STRONG>-n</STRONG> or <STRONG>-n-</STRONG> option if you only want to  print
+              unused subroutines.
+
+
+       <STRONG>-v</STRONG>     Be  verbose.  Using this option shows a lot of use-
+              full information about the files being scanned.
+
+
+       <STRONG>--version</STRONG>
+              Show the version number of <STRONG>fflow</STRONG>
+
+
+       <STRONG>-E</STRONG><EM>ext</EM>  Extensions <STRONG>fflow</STRONG> must use to determine which  files
+              it  has  to  scan. Up to eight -E are allowed.  The
+              default extension is .f
+
+
+       <STRONG>-I</STRONG><EM>dir</EM>  Using this option tells <STRONG>fflow</STRONG> which directories  it
+              has  to  search for f77 files. Only the contents of
+              that  directory  are  scanned.  Subdirectories  are
+              ignored.  Up to 64 -I are allowed.
+
+
+       <STRONG>-d</STRONG><EM>depth</EM>
+              Sets  the  maximum  recursion  depth  to depth. The
+              default value is 64. This recursion  depth  is  the
+              maximum depth of function calls, and is mainly used
+              as a test for detecting recursion. If <STRONG>fflow</STRONG> manages
+              to  get  to  the default value, this probably indi-
+              cates  that  somewhere  in  your  program  infinite
+              recursion  might  occur.  If <STRONG>fflow</STRONG> aborts saying it
+              has reached the maximum recursion depth,  it  means
+              that  this  number  has  been hit. If you are abso-
+              lutely sure that recursion does not appear in  your
+              program,  you can increase this number to the maxi-
+              mum value of an unsigned integer on your system.
+
+              The default value of 64 should be  enough  for  any
+              program.
+
+
+       <STRONG>-l</STRONG><EM>level</EM>
+              Using  this  option  will cause <STRONG>fflow</STRONG> to generate a
+              flowgraph which is only  <EM>level</EM>  levels  deep.  This
+              option can be very usefull to get a general idea on
+              the flow in a very large program. It also will help
+              reduce the size of the generated flowgraph.
+
+
+       <STRONG>-o</STRONG><EM>file</EM> file  to write flowgraph to. The default is stdout.
+
+
+       <STRONG>-s</STRONG><EM>name</EM> This option causes <STRONG>fflow</STRONG> to start the  output  file
+              with the named function.  When used with <STRONG>-u</STRONG> , <STRONG>fflow</STRONG>
+              generates a flowgraph for this function only.
+
+
+       <STRONG>-x</STRONG><EM>name</EM> Tells <STRONG>fflow</STRONG> to exclude the named file when scanning
+              the files found with the <EM>-I</EM> <EM>-E</EM> options. Up to 64 -x
+              options can be given.
+
+
+
+</PRE>
+<H3>EXAMPLES</H3><PRE>
+       <STRONG>fflow</STRONG> <STRONG>-p</STRONG> <STRONG>-u</STRONG> <STRONG>fortran-files</STRONG> generates a flowgraph  for  your
+       program only.
+
+       <STRONG>fflow</STRONG>  <STRONG>-s</STRONG><EM>name</EM>  <STRONG>-u</STRONG>  <STRONG>fortran-files</STRONG> generates a flowgraph for
+       <EM>[name]</EM> only.
+
+       <STRONG>fflow</STRONG> <STRONG>-I</STRONG><EM>dir1</EM> <STRONG>-I</STRONG><EM>dir2</EM> <STRONG>-E</STRONG><EM>.f</EM> <STRONG>-E</STRONG><EM>.f,v</EM> generates a flowgraph from
+       files  ending in <EM>.f</EM> and <EM>.f,v</EM> from the directories dir1 and
+       dir2.
+
+
+
+</PRE>
+<H3>DIAGNOSTICS</H3><PRE>
+       The following warning messages can occur:
+
+       <STRONG>WARNING:</STRONG> <STRONG>no</STRONG> <STRONG>program</STRONG> <STRONG>entry</STRONG> <STRONG>point</STRONG> <STRONG>found</STRONG> <STRONG>in</STRONG> <STRONG>file</STRONG> <EM>&lt;file&gt;</EM>
+              a call statement was encountered before  a  PROGRAM
+              statement  was  found.   <STRONG>fflow</STRONG> will use the name of
+              the file where this warning  occurs  as  a  program
+              name and continue.
+
+       <STRONG>Write</STRONG> <STRONG>failed</STRONG>
+              This  error can occur when <STRONG>fflow</STRONG> is writing a flow-
+              graph to file and a write error occurs.   The  most
+              likely  reasons  for  this  error to occur are <EM>disk</EM>
+              <EM>full</EM> or <EM>no</EM> <EM>space</EM> <EM>left</EM> <EM>on</EM> <EM>device</EM>
+
+              The flowgraph generated by <STRONG>fflow</STRONG> can be very  huge.
+              We have seen a complete flowgraph of a single func-
+              tion which was in excess of 50MB, so it's  easy  to
+              fill  up  your  disk. When you encounter such large
+              flowgraphs, you  might  want  to  use  the  <STRONG>-l</STRONG><EM>level</EM>
+              option in order to generate a useable flowgraph.
+
+
+
+</PRE>
+<H3>DISTRIBUTION POLICY</H3><PRE>
+       All  utilities  in  this  fortran  utility  suite are dis-
+       tributed under the GNU Public License.
+
+
+
+</PRE>
+<H3>COMPATIBILITY</H3><PRE>
+       <STRONG>fflow</STRONG> has run under HP-UX 9 and 10, SGI IRIX  5.2  &amp;  5.3,
+       DEC  OSF1,  SunOs  4.1 and 4.3, Cray Unicos, IBM AIX 3.2 &amp;
+       4.1, Linux and MSDOS 6.2.  <STRONG>fflow</STRONG> also runs in  a  dos  box
+       under  Windows 3.1, 3.11 and Win95. An MS-Windows version,
+       Winfflow, is also available.
+
+
+
+</PRE>
+<H3>SHORTCOMINGS</H3><PRE>
+       The output of <STRONG>fflow</STRONG> contains a flowgraph for each  subrou-
+       tine  or  function found in the input files. When you give
+       <STRONG>fflow</STRONG> the <EM>-c</EM> option, it can take a long time to write  the
+       flowgraph  to  file  if  you  have  fed it a collection of
+       source files with a huge number  of  calls.  This  can  be
+       annoying especially when running <STRONG>fflow</STRONG> on MSDOS.
+
+       Currently,  <STRONG>fflow</STRONG> only looks at CALL, so although FUNCTION
+       is found, these do not show up in the flowgraph.
+
+
+
+</PRE>
+<H3>BUGS</H3><PRE>
+       The MS-DOS versions of  these  tools  can  cause  problems
+       under  MS-DOS  if you feed them with a large collection of
+       files, few files with a lot of calls or a  combination  of
+       both. This is totally due to the 640kb memory limit MS-DOS
+       has.
+
+       If you think you have found a bug, you can send  email  to
+       the  author, describing what the bug is, how you generated
+       it and if you can reproduce it. Also specify the  platform
+       where this bug occured.
+
+
+
+</PRE>
+<H3>AUTHOR</H3><PRE>
+       Koen D'Hondt
+       ripley@xs4all.nl
+       (C)Copyright 1995-1996 by Ripley Software Development
+
+
+
+</PRE>
+<H3>SEE ALSO</H3><PRE>
+       <a href="ftags.html">ftags</a>(1),   <a href="ffscan.html">ffscan</a>(1),   <a href="scan_commons.html">scan_commons</a>(1),   <a href="get_common.html">get_common</a>(1),
+       <a href="list_commons.html">list_commons</a>(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

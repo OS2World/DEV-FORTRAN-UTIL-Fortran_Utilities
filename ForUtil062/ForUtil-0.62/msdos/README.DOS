@@ -1,0 +1,48 @@
+README.DOS:
+
+These tools are known to compile and run using Borland C/C++ 4.51
+
+Copy the autoconf.h one directory up, to the root directory of the
+source tree of these tools.
+
+If you want to build these tools yourself, you best create a project
+file for this suite of tools yourself.
+Be sure to use the large memory model _and_ turn on stack checking.
+
+If you have Borland C/C++ 4.51 or above, you probably can use the borland
+ide file in the directory forutil\windows. Copy that file one directory up
+and load it into your ide. You will have to adjust the path where the include
+files and libraries on your system are.
+
+The msdos versions of fflow, ffscan and scan_com support an additional 
+command line option: -m
+This option will summarize the memory usage upon completion.
+
+If you want to build these tools using a compiler other than the Borland 
+compiler (bcc), you can begin with the autoconf.h supplied and adapt
+when it is needed.
+
+You will also need a patched version of gdbm 1.7.3 in order to compile the
+commons tools. A version which compiles under msdos is available at the
+following URL:
+http://www.xs4all.nl/~ripley/RSD/GnuPorts.html
+
+You will also need a version of flex (2.5.2 or above) in order to convert all 
+files ending in .l. 
+
+The source for winfflow.l contains the file lexyy.c, which is the flex'd version
+of winfflow.l, and was converted using an adapted version of flex 2.5.2 to 
+support Windows. This version of flex is also available at the above URL.
+
+The files in lib form a library used by all programs in this package.
+Under MSDOS, this lib consists of each file, EXCEPT alloca.c.
+The file msdospwd contains a few routines which emulate UNIX password routines
+under MSDOS. See the file lib/readme for more information.
+
+Koen D'Hondt.
+Ripley Software Development.
+-------------------------------------------------------------------------------
+Reach Out At: 	email: ripley@xs4all.nl
+Surf The Web:	http://www.xs4all.nl/~ripley
+-------------------------------------------------------------------------------
+

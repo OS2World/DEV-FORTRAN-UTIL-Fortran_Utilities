@@ -1,0 +1,79 @@
+Routines in this library.
+
+(Under MSDOS, the name of the files will differ a little, since msdos 
+ chops of characters to fit in a 8+3 filename.)
+
+Source Files
+------------
+
+filelist.c
+   Routines for building a list of files from a directory.
+   The files found can be matched against a table with extensions.
+
+environment.c
+   Routines for resolving references to environment variables and
+   user names.
+
+msdospwd.c
+   a couple of routines that fake unix passwd routines. Needed by
+   environment.c. Intended to be used under msdos ONLY. 
+   If you want to see a username in the database generated with scan_commons,
+   your environment must contain any of the following variables:
+   USER, LOGNAME or LOGIN.
+
+SplitPath.c
+   routines to get a fully qualified path name, nomatter how they
+   are given on the command line, i.e, resolves relative paths.
+
+stringutil.c
+   a number of string routines, including a routine to see if a string
+   is at the end of another string.
+
+alloca.c
+   If your compiler does not support an alloca, you can try to use alloca.c.
+   Use at your own risk.
+
+Header Files
+------------
+forutil.h
+   The public header file for this library.
+   Contains function prototypes for every public routine in this library.
+
+sysdeps.h
+   A header file containing UNIX/MSDOS dependent params.
+   MSDOS users, if you do get a stack overflow error when running any of
+   the programs in ForUtil, you might want to increase the _stklen number
+   to a larger value. _stklen indicates the size of the stack you want.
+   The default value of 32kb will probably be pretty okay.
+
+memmacros.h
+   memory allocation macros used throughout the entire source.
+   Under MSDOS, all memory allocation is done using far pointers, so be
+   sure to compile everything with a LARGE memory model.
+   If an allocation fails, these macros exit saying what type of allocation
+   failed, how many bytes were requested an at what point in the source
+   this happened. Exiting is done by raising a SIGUSR1. For the programs in
+   ForUtil that do not have a signal catcher installed, they exit with
+   an errorcode of 7.
+
+msdospwd.h
+   a fake unixlike pwd.h with function prototypes from msdospwd.c
+
+How to compile this lib under msdos
+-----------------------------------
+I've compiled this lib using Borland C/C++ 4.51.
+
+You can best create a project for this library and include the source
+files mentioned above. You do not need alloca.c
+
+This library should be compiled using a large memory model.
+
+When compiling, be sure that MSDOS is defined and that stack tracing is on.
+
+Koen D'Hondt.
+Ripley Software Development.
+-------------------------------------------------------------------------------
+Reach Out At: 	email: ripley@xs4all.nl
+Surf The Web:	http://www.xs4all.nl/~ripley
+-------------------------------------------------------------------------------
+

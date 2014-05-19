@@ -1,0 +1,6 @@
+edit configure file by hand to work around all the failed tests.
+
+
+setenv RANLIB 'ar srv'
+setenv GCC gcc
+setenv LEX flex

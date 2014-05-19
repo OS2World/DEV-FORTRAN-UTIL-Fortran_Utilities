@@ -1,0 +1,330 @@
+
+
+
+FFLOW(1)              ForUtil Fortran Tools              FFLOW(1)
+
+
+NNAAMMEE
+       fflow - generate a flowgraph for fortran files.
+
+SSYYNNOOPPSSIISS
+       ffffllooww  [[--cceeffhhiinnppqqttuuvv]]  --EE_e_x_t  --II_d_i_r --dd_d_e_p_t_h --ll_l_e_v_e_l --oo_f_i_l_e
+       --ss_n_a_m_e --xx_n_a_m_e [[ffiilleess]]
+
+
+DDEESSCCRRIIPPTTIIOONN
+       ffffllooww Generates a (partial) flowgraph of a  collection  of
+       fortran  files.   When  fed  with  a couple of directories
+       and/or files, ffffllooww creates  a  flowgraph  indicating  the
+       flow  in  your program. The output is written on stdout by
+       default but can be written to file.  ffffllooww is very usefull
+       for  large  programs  where you only want to see the flow-
+       graph of a certain part of a program.
+
+
+OOPPTTIIOONNSS
+       --cc     Using this option instructs  ffffllooww  to  generate  a
+              complete  flowgraph for each subroutine or function
+              it encounters. By default, ffffllooww will  place  a  ==
+              Line  XX  ==  in  the output for each subroutine or
+              function for which it has already generated a flow-
+              graph.  Beware  though  that  using this option can
+              significantly increase the size of the output  file
+              and  that  it  can take a little longer to generate
+              all flowgraphs.
+
+
+       --ee     Using this option will cause ffffllooww to  not  include
+              functions  without  calls  in  the output. Helps to
+              decrease the size of the output file.
+
+
+       --ff     Include the full path of files in the  output.  The
+              default  is  to  print  the  name of the file only.
+              Using this option increases the memory  ffffllooww  uses
+              to  store  its  data,  so it might be unwise to use
+              this option on msdos systems with their 640kb  mem-
+              ory limit.
+
+
+       --hh,, ----hheellpp
+              gives  a  short description of every option you can
+              use.
+
+
+       --ii     Using this option causes ffffllooww to not print unknown
+              function  calls  in the output. Usefull if you only
+              want to have a flowgraph of  a  part  of  a  source
+              tree.
+
+
+
+
+
+Linux                      August 1996                          1
+
+
+
+
+
+FFLOW(1)              ForUtil Fortran Tools              FFLOW(1)
+
+
+       --nn,, --nn--
+              Using  this  option  will  cause ffffllooww to tell what
+              subroutines are never invoked. If you only want  to
+              check your files for this and do not want to gener-
+              ate a flowgraph, use -n-
+
+
+       --pp     Starts the flowgraph  at  the  PROGRAM  definition.
+              When used with --uu , ffffllooww generates a flowgraph for
+              PROGRAM only.
+
+              Note: if you use the --uu option, ffffllooww will generate
+              a  flowgraph  for  the  first  PROGRAM statement it
+              encounters.
+
+
+       --qq     Be really quiet (usefull if called from a  script).
+              Only error messages will be shown.
+
+
+       --tt     Use tabs instead of | as level indicator.
+
+
+       --uu     Do  not  print unused functions in the output file.
+              Using this option will cause  ffffllooww  to  not  print
+              functions and/or routines which are not referenced.
+              Use the --nn or --nn-- option if you only want to  print
+              unused subroutines.
+
+
+       --vv     Be  verbose.  Using this option shows a lot of use-
+              full information about the files being scanned.
+
+
+       ----vveerrssiioonn
+              Show the version number of ffffllooww
+
+
+       --EE_e_x_t  Extensions ffffllooww must use to determine which  files
+              it  has  to  scan. Up to eight -E are allowed.  The
+              default extension is .f
+
+
+       --II_d_i_r  Using this option tells ffffllooww which directories  it
+              has  to  search for f77 files. Only the contents of
+              that  directory  are  scanned.  Subdirectories  are
+              ignored.  Up to 64 -I are allowed.
+
+
+       --dd_d_e_p_t_h
+              Sets  the  maximum  recursion  depth  to depth. The
+              default value is 64. This recursion  depth  is  the
+              maximum depth of function calls, and is mainly used
+              as a test for detecting recursion. If ffffllooww manages
+
+
+
+Linux                      August 1996                          2
+
+
+
+
+
+FFLOW(1)              ForUtil Fortran Tools              FFLOW(1)
+
+
+              to  get  to  the default value, this probably indi-
+              cates  that  somewhere  in  your  program  infinite
+              recursion  might  occur.  If ffffllooww aborts saying it
+              has reached the maximum recursion depth,  it  means
+              that  this  number  has  been hit. If you are abso-
+              lutely sure that recursion does not appear in  your
+              program,  you can increase this number to the maxi-
+              mum value of an unsigned integer on your system.
+
+              The default value of 64 should be  enough  for  any
+              program.
+
+
+       --ll_l_e_v_e_l
+              Using  this  option  will cause ffffllooww to generate a
+              flowgraph which is only  _l_e_v_e_l  levels  deep.  This
+              option can be very usefull to get a general idea on
+              the flow in a very large program. It also will help
+              reduce the size of the generated flowgraph.
+
+
+       --oo_f_i_l_e file  to write flowgraph to. The default is stdout.
+
+
+       --ss_n_a_m_e This option causes ffffllooww to start the  output  file
+              with the named function.  When used with --uu , ffffllooww
+              generates a flowgraph for this function only.
+
+
+       --xx_n_a_m_e Tells ffffllooww to exclude the named file when scanning
+              the files found with the _-_I _-_E options. Up to 64 -x
+              options can be given.
+
+
+EEXXAAMMPPLLEESS
+       ffffllooww --pp --uu ffoorrttrraann--ffiilleess generates a flowgraph  for  your
+       program only.
+
+       ffffllooww  --ss_n_a_m_e  --uu  ffoorrttrraann--ffiilleess generates a flowgraph for
+       _[_n_a_m_e_] only.
+
+       ffffllooww --II_d_i_r_1 --II_d_i_r_2 --EE_._f --EE_._f_,_v generates a flowgraph from
+       files  ending in _._f and _._f_,_v from the directories dir1 and
+       dir2.
+
+
+DDIIAAGGNNOOSSTTIICCSS
+       The following warning messages can occur:
+
+       WWAARRNNIINNGG:: nnoo pprrooggrraamm eennttrryy ppooiinntt ffoouunndd iinn ffiillee _<_f_i_l_e_>
+              a call statement was encountered before  a  PROGRAM
+              statement  was  found.   ffffllooww will use the name of
+              the file where this warning  occurs  as  a  program
+              name and continue.
+
+
+
+Linux                      August 1996                          3
+
+
+
+
+
+FFLOW(1)              ForUtil Fortran Tools              FFLOW(1)
+
+
+       WWrriittee ffaaiilleedd
+              This  error can occur when ffffllooww is writing a flow-
+              graph to file and a write error occurs.   The  most
+              likely  reasons  for  this  error to occur are _d_i_s_k
+              _f_u_l_l or _n_o _s_p_a_c_e _l_e_f_t _o_n _d_e_v_i_c_e
+
+              The flowgraph generated by ffffllooww can be very  huge.
+              We have seen a complete flowgraph of a single func-
+              tion which was in excess of 50MB, so it's  easy  to
+              fill  up  your  disk. When you encounter such large
+              flowgraphs, you  might  want  to  use  the  --ll_l_e_v_e_l
+              option in order to generate a useable flowgraph.
+
+
+DDIISSTTRRIIBBUUTTIIOONN PPOOLLIICCYY
+       All  utilities  in  this  fortran  utility  suite are dis-
+       tributed under the GNU Public License.
+
+
+CCOOMMPPAATTIIBBIILLIITTYY
+       ffffllooww has run under HP-UX 9 and 10, SGI IRIX  5.2  &  5.3,
+       DEC  OSF1,  SunOs  4.1 and 4.3, Cray Unicos, IBM AIX 3.2 &
+       4.1, Linux and MSDOS 6.2.  ffffllooww also runs in  a  dos  box
+       under  Windows 3.1, 3.11 and Win95. An MS-Windows version,
+       Winfflow, is also available.
+
+
+SSHHOORRTTCCOOMMIINNGGSS
+       The output of ffffllooww contains a flowgraph for each  subrou-
+       tine  or  function found in the input files. When you give
+       ffffllooww the _-_c option, it can take a long time to write  the
+       flowgraph  to  file  if  you  have  fed it a collection of
+       source files with a huge number  of  calls.  This  can  be
+       annoying especially when running ffffllooww on MSDOS.
+
+       Currently,  ffffllooww only looks at CALL, so although FUNCTION
+       is found, these do not show up in the flowgraph.
+
+
+BBUUGGSS
+       The MS-DOS versions of  these  tools  can  cause  problems
+       under  MS-DOS  if you feed them with a large collection of
+       files, few files with a lot of calls or a  combination  of
+       both. This is totally due to the 640kb memory limit MS-DOS
+       has.
+
+       If you think you have found a bug, you can send  email  to
+       the  author, describing what the bug is, how you generated
+       it and if you can reproduce it. Also specify the  platform
+       where this bug occured.
+
+
+AAUUTTHHOORR
+       Koen D'Hondt
+
+
+
+Linux                      August 1996                          4
+
+
+
+
+
+FFLOW(1)              ForUtil Fortran Tools              FFLOW(1)
+
+
+       ripley@xs4all.nl
+       (C)Copyright 1995-1996 by Ripley Software Development
+
+
+SSEEEE AALLSSOO
+       ffttaaggss(1),   ffffssccaann(1),   ssccaann__ccoommmmoonnss(1),   ggeett__ccoommmmoonn(1),
+       lliisstt__ccoommmmoonnss(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Linux                      August 1996                          5
+
+
